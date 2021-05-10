@@ -1,0 +1,3 @@
+[submodule "cfg-code-generator"]
+	path = cfg-code-generator
+	url = https://github.com/radian628/cfg-code-generator
