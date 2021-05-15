@@ -1,4 +1,4 @@
-h1, h2, h3 {
+h1, h2, h3, h4 {
     font-family: Helvetica, sans-serif;
     margin-top: 80px;
     color: #122542;
@@ -15,9 +15,20 @@ h1, h2, h3 {
     margin: 10px 40px;
 }
 
+.js-output {
+    background: #eef5ed;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 40px;
+}
+
 .article {
     margin: 10px calc(50vw - 20em);
     margin-bottom: 10%;
+}
+
+.article li {
+    margin-bottom: 8px;
 }
 
 pre, code {
@@ -31,6 +42,13 @@ pre {
     padding: 10px;
     word-wrap: break-word;
     overflow: scroll;
+}
+
+kbd {
+    background: #EEEEEE;
+    border-radius: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .noborder {
@@ -108,13 +126,20 @@ pre {
 
 #nav-sections a {
     text-decoration: none;
-    color: #36568a;
     transition: color 0.3s;
 }
 
 #nav-sections a:hover {
     text-decoration: none;
     color: #36294a;
+}
+
+#nav-sections a {
+    color: #36568a;
+}
+
+.nav-highlighted {
+    color: rgb(255, 0, 0) !important;
 }
 
 @media (max-width: 58em) {
@@ -142,7 +167,16 @@ pre {
         color: #d5e2f6;
     }
 
+    #nav-sections a:hover {
+        text-decoration: none;
+        color: #bb96f3;
+    }
+    
     #nav-sections:hover {
         left: 0%;
+    }
+
+    .nav-highlighted {
+        color: rgb(255, 131, 131) !important;
     }
 }

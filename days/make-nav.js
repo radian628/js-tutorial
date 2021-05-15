@@ -7,6 +7,17 @@ let lastLevel = 0;
 let currentParent = nav;
 let lastElement = nav;
 
+function getHeaderYPositions() {
+    return headers.map((header, i) => { return { y: header.getBoundingClientRect().y, header: header, index: i } });
+}
+
+let ys = [];
+
+
+let navListItems = [];
+
+let prevHighlighted = undefined;
+
 headers.forEach(header => {
     let id = header.innerText.toLowerCase().replace(/ /g, "-").replace(/[^\w-]/g, "");
     header.id = id;
@@ -22,6 +33,8 @@ headers.forEach(header => {
     let listItem = document.createElement("li");
     currentParent.appendChild(listItem);
 
+    navListItems.push(listItem);
+
     let hyperlink = document.createElement("a");
     listItem.appendChild(hyperlink);
     hyperlink.href = "#" + id;
@@ -33,3 +46,15 @@ headers.forEach(header => {
     lastLevel = level;
     lastElement = list;
 });
+
+function loop() {
+    ys = getHeaderYPositions();
+    let smallest = ys.reduce((previous, current) => Math.abs(previous.y) < Math.abs(current.y) ? previous : current, ys[0]);
+    let currentHighlighted = navListItems[smallest.index];
+    if (prevHighlighted && prevHighlighted !== currentHighlighted) prevHighlighted.children[0].className = "";
+    currentHighlighted.children[0].className = "nav-highlighted";
+    prevHighlighted = currentHighlighted;
+    setTimeout(loop, 200);
+}
+
+loop();
