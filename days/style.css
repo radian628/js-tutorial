@@ -1,0 +1,28 @@
+h1, h2, h3 {
+    font-family: Helvetica, sans-serif;
+}
+
+.html-output {
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 40px;
+}
+
+.article {
+    margin: 10px calc(50vw - 25em);
+}
+
+@media (max-width: 50em) {
+    .article {
+        margin: 10px 5%;
+    }
+}
+
+pre, code {
+    border: 1px solid grey;
+    background: #EEEEEE;
+    border-radius: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}

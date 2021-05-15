@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="article">
+            <h1>Day 1</h1>
+            <h2>Quick Reference (click to expand)</h2>
+            <p>This section is a compact cheatsheet for anyone who just needs a reminder. Skip this section and read the rest if you need more detailed information.</p>
+            <h2>Introduction</h2>
+            <h3>What is HTML?</h3>
+            <p>HTML is a <b>markup</b> language (not a programming language!) that describes the content of web pages. It tells the browser that what you're reading right now is a paragraph of text, and that the text above this paragraph is a header. It can describe all sorts of elements: Paragraphs, headers, lists, images, buttons, inputs, and even videos, to name a few.</p>
+            <p>An important distinction to make with HTML is that HTML describes <i>what</i> is on a page, not <i>how it looks.</i> It will tell you that there's two paragraphs of text. However, it won't tell you how big the font is, how wide the paragraphs are, whether they're separated, et cetera. Sure, the browser creates a default look, but this should not be relied on if you're going for a specific style! Determining how a page looks is the job of CSS (which is another topic entirely).</p>
+            <h3>What is JavaScript?</h3>
+            <p>JavaScript is a programming language- in other words, a series of human-readable instructions that can be read and executed by a computer. JavaScript's primary purpose is adding interactivity to websites. Virtually every website you visit contains JavaScript <i>somewhere</i>. When you press a button, move your mouse, scroll, or even just sit idley on a page, there is JavaScript running, reacting to your every move.</p>
+            <h2>Coding with JSFiddle</h2>
+            <p>JSFiddle is an online code editor that lets you edit HTML, CSS, and JavaScript, all while showing you the result of what you've made. <a href="https://jsfiddle.net">Try it out here!</a></p>
+            <p>There are four main tabs by default. They all do what you might expect- "HTML", "CSS", and "JavaScript" contain their respective languages, while "Result" contains the result of what you created in the other three. You can find options for running and saving fiddles near the top left corner, and you can find options near the top right. <b>If you save a fiddle, copy the URL somewhere! That's how you can access it again!</b></p>
+            <h2>Intro to HTML</h2>
+            <h3>HTML Tags</h3>
+            <p>This is an HTML tag. It's the base unit of all HTML:</p>
+            <pre>&lt;tagname&gt;&lt;/tagname&gt;</pre>
+            <p>That first half, between the first set of angle brackets, is called the <b>opening tag</b>. The second half, between the second set of angle brackets, is called the <b>closing tag</b>. Anything between the opening and closing tag is said to be <i>inside</i> the tag. The text labeled <code>tagname</code> is said to be the name or type of the tag.</p>
+            <h3>The HTML Template</h3>
+            <p>Below is the starting template for virtually every web page in existence. It isn't strictly required, but you should still use it:</p>
+            <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+    
+    &lt;/head&gt;
+    &lt;body&gt;
+    
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+            <p>Let's break this down:</p>
+            <p><code>&lt;!DOCTYPE html&gt;</code> - This tells the browser (and anything else reading the HTML file) that what you're looking at is, in fact, HTML. It's not exactly a "true" HTML tag.</p>
+            <p><code>&lt;html&gt;</code> - All HTML goes in the <code>html</code> tag.</p>
+            <p><code>&lt;head&gt;&lt;/head&gt;</code> - This is the <code>head</code> tag. You'll find "meta-information" about the web page here- for example, a description of the site that appears on search results, or a title that appears on the tab.</p>
+            <p><code>&lt;body&gt;&lt;/body&gt;</code> - The <code>body</code> tag contains all the HTML on the web page that you can directly see.</p>
+            <h3>Adding Content</h3>
+            <p>Let's look at an example of some HTML that actually does something:</p>
+            <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+    
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;p&gt;Hello World!&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+            <p>The only real difference between this HTML and the template is the inclusion of the line <code>&lt;p&gt;Hello World!&lt;/p&gt;</code>, which represents a paragraph of text, where that text is "Hello World". Try typing out this example in JSFiddle. You should get something resembling this (without the border, of course- that's just to differentiate the output from the rest of the page):</p>
+            <div class="html-output">
+                <p>Hello World!</p>
+            </div>
+            <p>Here is an example with more tags:</p>
+            <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+    
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;I am a header!&lt;/h1&gt;
+        &lt;p&gt;I am a paragraph!&lt;/p&gt;
+        &lt;button&gt;I am a button!&lt;/button&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+            <p>Its output:</p>
+            <div class="html-output">
+                <h1>I am a header!</h1>
+                <p>I am a paragraph!</p>
+                <button>I am a button!</button>
+            </div>
+            <p>As you may have guessed, the <code>h1</code> tag defines a header, and the <code>button</code> tag defines a button.</p>
+        </div>
+    </body>
+</html>
