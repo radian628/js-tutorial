@@ -79,11 +79,14 @@ pre {
     font-family: Helvetica, sans-serif;
     position: fixed;
     top: 0%;
-    width: calc(50vw - 20em - 20px);
+    left: 0;
+    width: calc(50vw - 20rem - 25px);
+    word-wrap: break-word;
     max-height: 90vh;
-    overflow: scroll;
+    overflow-y: scroll;
     list-style: none;
     font-size: 1.5em;
+    padding-left: 10px;
 }
 
 #nav-sections ul {
@@ -114,21 +117,32 @@ pre {
     color: #36294a;
 }
 
-@media (max-width: 40em) {
+@media (max-width: 58em) {
     .article {
         margin: 10px 5%;
     }
 
     #nav-sections {
         top: unset;
-        bottom: 0%;
+        bottom: -24px;
         width: 100%;
+        background: #000000BB;
+        left: -99%;
+        transition: left 0.3s;
+        border-radius: 20px;
+        padding-top: 10px;
+        max-height: 50%;
     }
+
     #nav-sections li {
         display: inline;
     }
 
-    #nav-sections:hover {
+    #nav-sections a {
+        color: #d5e2f6;
+    }
 
+    #nav-sections:hover {
+        left: 0%;
     }
 }
