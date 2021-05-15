@@ -4,8 +4,14 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
+        <ul id="nav-sections">
+            
+        </ul>
         <div class="article">
             <h1>Day 1</h1>
+            <h2>A Word of Advice</h2>
+            <p>Before I start, I just want to give some advice: When reading over tutorials (such as this one), if you want to absorb all the information, <b>you should read <i>every</i> word</b>. Don't try to skim or skip over any words or sentences- you could easily gloss over a sentence that completely reframes your understanding. So if you find yourself stumped with some part of this tutorial (or one of the next ones), ask yourself this: <i>Did I read <b>everything?</b></i> If the answer is "no," read over everything again, this time sparing no details!</p>
+            <p>While this advice might seem obvious to some, I think it's important to mention <b>and be conscious of</b>, because it's a trap that <b>anyone</b> can fall into without even realizing- especially if they're tired and wanting to get things over with.</p>
             <h2>Introduction</h2>
             <h3>What is HTML?</h3>
             <p>HTML is a <b>markup</b> language (not a programming language!) that describes the content of web pages. It tells the browser that what you're reading right now is a paragraph of text, and that the text above this paragraph is a header. It can describe all sorts of elements: Paragraphs, headers, lists, images, buttons, inputs, and even videos, to name a few.</p>
@@ -49,7 +55,7 @@
         &lt;p&gt;Hello World!&lt;/p&gt;
     &lt;/body&gt;
 &lt;/html&gt;</pre>
-            <p>The only real difference between this HTML and the template is the inclusion of the line <code>&lt;p&gt;Hello World!&lt;/p&gt;</code>, which represents a paragraph of text, where that text is "Hello World". Try typing out this example in JSFiddle. You should get something resembling this (without the border, of course- that's just to differentiate the output from the rest of the page):</p>
+            <p>The only real difference between this HTML and the template is the inclusion of the line <code>&lt;p&gt;Hello World!&lt;/p&gt;</code>, which represents a paragraph of text, where that text is "Hello World". Try typing out this example in JSFiddle. You should get something resembling this (without the background, of course- that's just to differentiate the output from the rest of the page):</p>
             <div class="html-output">
                 <p>Hello World!</p>
             </div>
@@ -69,7 +75,7 @@
 &lt;/html&gt;</pre>
             <p>Its output:</p>
             <div class="html-output">
-                <h1>I am a header!</h1>
+                <h1 class="no-nav">I am a header!</h1>
                 <p>I am a paragraph!</p>
                 <button>I am a button!</button>
             </div>
@@ -93,8 +99,8 @@
             <p>One odd thing you might immediately notice is that the <code>input</code> tag has no closing tag! This is no mistake- the input tag is supposed to work this way. You'll also notice that the opening tag has another unusual part- this <code>value="I am a text input!"</code> thing. This is an <b>HTML attribute</b>, a piece of data that modifies an HTML element. In this case, we're setting the <code>value</code> attribute to <code>I am a text input!</code> (remember to include quotes). For input elements, the <code>value</code> attribute represents the starting value within the input.</p>
             <p>Output:</p>
             <div class="html-output">
-                <h1>I am a header!</h1>
-                <h2>I am a (less important) header!</h2>
+                <h1 class="no-nav">I am a header!</h1>
+                <h2 class="no-nav">I am a (less important) header!</h2>
                 <p>I am a paragraph <strong>with bold text</strong>!</p>
                 <button>I am a button!</button>
                 <input value="I am a text input!">
@@ -102,7 +108,7 @@
             <h3>Reverse-engineering HTML</h3>
             <p>Go to JSFiddle and create the HTML that produces the following output (do not worry if it looks slightly different- this page's CSS changes the font):</p>
             <div class="html-output">
-                <h1>Header</h1>
+                <h1 class="no-nav">Header</h1>
                 <p>text text <strong>text</strong> text text</p>
                 <button>Click Me!</button>
             </div>
@@ -147,6 +153,10 @@
 &lt;/html&gt;</pre>
                 </div>
             </div>
+
+            <h2>Conclusion</h2>
+            <p>That's the basics of HTML! Go to <a href="day2.html">Day 2</a> to start JavaScript!</p>
         </div>
+        <script src="./make-nav.js"></script>
     </body>
 </html>

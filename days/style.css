@@ -1,6 +1,7 @@
 h1, h2, h3 {
     font-family: Helvetica, sans-serif;
     margin-top: 80px;
+    color: #122542;
 }
 
 .html-output h1, .html-output h2, .html-output h3 {
@@ -8,28 +9,28 @@ h1, h2, h3 {
 }
 
 .html-output {
-    border: 1px solid grey;
+    background: #f1edf5;
     border-radius: 10px;
     padding: 10px;
     margin: 10px 40px;
 }
 
 .article {
-    margin: 10px calc(50vw - 25em);
-}
-
-@media (max-width: 50em) {
-    .article {
-        margin: 10px 5%;
-    }
+    margin: 10px calc(50vw - 20em);
+    margin-bottom: 10%;
 }
 
 pre, code {
-    border: 1px solid grey;
-    background: #EEEEEE;
+    background: #edf1f5;
     border-radius: 10px;
     padding-left: 5px;
     padding-right: 5px;
+}
+
+pre {
+    padding: 10px;
+    word-wrap: break-word;
+    overflow: scroll;
 }
 
 .noborder {
@@ -37,8 +38,7 @@ pre, code {
 }
 
 .spoiler {
-    background: #EEEEEE;
-    border: 1px solid grey;
+    background: #edf1f5;
     border-radius: 10px;
 }
 
@@ -60,15 +60,75 @@ pre, code {
     width: calc(100% - 20px);
     padding: 10px;
     border-radius: 10px;
-    background: #DDDDDD;
+    background: #dae2eb;
     transition: background-color 0.3s;
     font-family: Helvetica, sans-serif;
 }
 .spoiler > input:hover {
-    background: #CCCCCC;
+    background: #c1cbd4;
 }
 .spoiler > input:checked {
-    border-bottom: 1px solid grey;
+    background: #aab4be;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
+}
+
+
+
+#nav-sections {
+    font-family: Helvetica, sans-serif;
+    position: fixed;
+    top: 0%;
+    width: calc(50vw - 20em - 20px);
+    max-height: 90vh;
+    overflow: scroll;
+    list-style: none;
+    font-size: 1.5em;
+}
+
+#nav-sections ul {
+    list-style: none;
+    padding-left: 15px;
+    font-size: 0.85em;
+    opacity: 0.85;
+    margin-top: 6px;
+    border-left: 5px solid #acc3e6;
+}
+
+#nav-sections li {
+    margin-bottom: 6px;
+}
+
+#nav-sections li:last-child {
+    margin-bottom: 20px;
+}
+
+#nav-sections a {
+    text-decoration: none;
+    color: #36568a;
+    transition: color 0.3s;
+}
+
+#nav-sections a:hover {
+    text-decoration: none;
+    color: #36294a;
+}
+
+@media (max-width: 40em) {
+    .article {
+        margin: 10px 5%;
+    }
+
+    #nav-sections {
+        top: unset;
+        bottom: 0%;
+        width: 100%;
+    }
+    #nav-sections li {
+        display: inline;
+    }
+
+    #nav-sections:hover {
+
+    }
 }
