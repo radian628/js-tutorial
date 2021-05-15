@@ -1,5 +1,10 @@
 h1, h2, h3 {
     font-family: Helvetica, sans-serif;
+    margin-top: 80px;
+}
+
+.html-output h1, .html-output h2, .html-output h3 {
+    margin-top: 10px;
 }
 
 .html-output {
@@ -25,4 +30,45 @@ pre, code {
     border-radius: 10px;
     padding-left: 5px;
     padding-right: 5px;
+}
+
+.noborder {
+    border: none;
+}
+
+.spoiler {
+    background: #EEEEEE;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+
+.spoiler > input + div {
+    display: none;
+}
+
+.spoiler > input:checked + div {
+    display: block;
+}
+
+.spoiler > input::after {
+    content: "Click to show/hide";
+}
+
+.spoiler > input {
+    all: unset;
+    display: block;
+    width: calc(100% - 20px);
+    padding: 10px;
+    border-radius: 10px;
+    background: #DDDDDD;
+    transition: background-color 0.3s;
+    font-family: Helvetica, sans-serif;
+}
+.spoiler > input:hover {
+    background: #CCCCCC;
+}
+.spoiler > input:checked {
+    border-bottom: 1px solid grey;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }

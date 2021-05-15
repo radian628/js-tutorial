@@ -6,8 +6,6 @@
     <body>
         <div class="article">
             <h1>Day 1</h1>
-            <h2>Quick Reference (click to expand)</h2>
-            <p>This section is a compact cheatsheet for anyone who just needs a reminder. Skip this section and read the rest if you need more detailed information.</p>
             <h2>Introduction</h2>
             <h3>What is HTML?</h3>
             <p>HTML is a <b>markup</b> language (not a programming language!) that describes the content of web pages. It tells the browser that what you're reading right now is a paragraph of text, and that the text above this paragraph is a header. It can describe all sorts of elements: Paragraphs, headers, lists, images, buttons, inputs, and even videos, to name a few.</p>
@@ -55,6 +53,7 @@
             <div class="html-output">
                 <p>Hello World!</p>
             </div>
+            <h3>Another Example</h3>
             <p>Here is an example with more tags:</p>
             <pre>
 &lt;!DOCTYPE html&gt;
@@ -75,6 +74,79 @@
                 <button>I am a button!</button>
             </div>
             <p>As you may have guessed, the <code>h1</code> tag defines a header, and the <code>button</code> tag defines a button.</p>
+            <h3>Some more tags</h3>
+            <p>Here's an even more complex example:</p>
+            <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+    
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;I am a header!&lt;/h1&gt;
+        &lt;h2&gt;I am a (less important) header!&lt;/h2&gt;
+        &lt;p&gt;I am a paragraph &lt;strong&gt;with bold text&lt;/strong&gt;!&lt;/p&gt;
+        &lt;button&gt;I am a button!&lt;/button&gt;
+        &lt;input value="I am a text input!"&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+            <p>One odd thing you might immediately notice is that the <code>input</code> tag has no closing tag! This is no mistake- the input tag is supposed to work this way. You'll also notice that the opening tag has another unusual part- this <code>value="I am a text input!"</code> thing. This is an <b>HTML attribute</b>, a piece of data that modifies an HTML element. In this case, we're setting the <code>value</code> attribute to <code>I am a text input!</code> (remember to include quotes). For input elements, the <code>value</code> attribute represents the starting value within the input.</p>
+            <p>Output:</p>
+            <div class="html-output">
+                <h1>I am a header!</h1>
+                <h2>I am a (less important) header!</h2>
+                <p>I am a paragraph <strong>with bold text</strong>!</p>
+                <button>I am a button!</button>
+                <input value="I am a text input!">
+            </div>
+            <h3>Reverse-engineering HTML</h3>
+            <p>Go to JSFiddle and create the HTML that produces the following output (do not worry if it looks slightly different- this page's CSS changes the font):</p>
+            <div class="html-output">
+                <h1>Header</h1>
+                <p>text text <strong>text</strong> text text</p>
+                <button>Click Me!</button>
+            </div>
+            <p>Solution:</p>
+            <div class="spoiler">
+                <input type="checkbox">
+                <div>
+<pre class="noborder">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+    
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Header!&lt;/h1&gt;
+        &lt;p&gt;text text &lt;strong&gt;text&lt;/strong&gt; text text&lt;/p&gt;
+        &lt;button&gt;Click Me!&lt;/button&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+                </div>
+            </div>
+
+            <h3>More Reverse-Engineering</h3>
+            <p>Here's a harder example.</p>
+            <div class="html-output">
+                <p>You can access Google Search by clicking <a href="https://google.com">here</a>.</p>
+            </div>
+            <p>You may realize that I did not tell you how to create a link. This is completely intentional- you will have to search up the solution yourself! Hint: It will involve a new HTML tag and a new HTML attribute. I recommend the site "W3Schools" for learning about this, though other sites work too.</p>
+            <p>Solution:</p>
+            <div class="spoiler">
+                <input type="checkbox">
+                <div>
+<pre class="noborder">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+    
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;p&gt;You can access Google Search by clicking &lt;a href=&quot;https://google.com&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+                </div>
+            </div>
         </div>
     </body>
 </html>
