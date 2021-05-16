@@ -49,26 +49,32 @@ headers.forEach(header => {
 });
 
 async function addSiteNav() {
-    let siteNavContent = `<li><a href="/index.html">Home</a></li>
+    let siteNavContent = `<li><a data-href="/index.html">Home</a></li>
     <li>Days
         <ul>
-            <li><a href="/days/day1.html">Day 1 - HTML</a></li>
-            <li><a href="/days/day2.html">Day 2 - Variables, Math, Comparison, If/Else, Functions</a></li>
-            <li><a href="/days/day3.html">Day 3 - || and &&, DRY, Objects, DOM, Events</a></li>
-            <li><a href="/days/day4.html">Day 4</a></li>
-            <li><a href="/days/day5.html">Day 5</a></li>
-            <li><a href="/days/day6.html">Day 6</a></li>
-            <li><a href="/days/day7.html">Day 7</a></li>
-            <li><a href="/days/day8.html">Day 8</a></li>
-            <li><a href="/days/day9.html">Day 9</a></li>
-            <li><a href="/days/day10.html">Day 10</a></li>
+            <li><a data-href="/days/day1.html">Day 1 - HTML</a></li>
+            <li><a data-href="/days/day2.html">Day 2 - Variables, Math, Comparison, If/Else, Functions</a></li>
+            <li><a data-href="/days/day3.html">Day 3 - || and &&, DRY, Objects, DOM, Events</a></li>
+            <li><a data-href="/days/day4.html">Day 4</a></li>
+            <li><a data-href="/days/day5.html">Day 5</a></li>
+            <li><a data-href="/days/day6.html">Day 6</a></li>
+            <li><a data-href="/days/day7.html">Day 7</a></li>
+            <li><a data-href="/days/day8.html">Day 8</a></li>
+            <li><a data-href="/days/day9.html">Day 9</a></li>
+            <li><a data-href="/days/day10.html">Day 10</a></li>
         </ul>
     </li>
     `; 
-    let siteNav = document.createElement("ul");
+    let siteNav = document.getElementById("site-nav");
     siteNav.innerHTML = siteNavContent;
     siteNav.id = "site-nav";
+    let rootDir = siteNav.dataset.rootDir;
+
     document.body.appendChild(siteNav);
+
+    Array.from(document.querySelectorAll("#site-nav a")).forEach(a => {
+        a.href = rootDir + a.dataset.href;
+    });
 }
 
 function loop() {
