@@ -41,7 +41,7 @@ pre, code {
 pre {
     padding: 10px;
     word-wrap: break-word;
-    overflow: scroll;
+    overflow: auto;
 }
 
 kbd {
@@ -101,7 +101,7 @@ kbd {
     width: calc(50vw - 20rem - 25px);
     word-wrap: break-word;
     max-height: 90vh;
-    overflow-y: scroll;
+    overflow-y: auto;
     list-style: none;
     font-size: 1.5em;
     padding-left: 10px;
@@ -111,7 +111,7 @@ kbd {
     list-style: none;
     padding-left: 15px;
     font-size: 0.85em;
-    opacity: 0.85;
+    opacity: 0.9;
     margin-top: 6px;
     border-left: 5px solid #acc3e6;
 }
@@ -135,14 +135,14 @@ kbd {
 }
 
 #nav-sections a {
-    color: #36568a;
+    color: #152949;
 }
 
 .nav-highlighted {
     color: rgb(255, 0, 0) !important;
 }
 
-@media (max-width: 58em) {
+@media (max-width: 62em) {
     .article {
         margin: 10px 5%;
     }
@@ -150,13 +150,18 @@ kbd {
     #nav-sections {
         top: unset;
         bottom: -24px;
-        width: 100%;
+        width: 90%;
         background: #000000BB;
-        left: -99%;
+        left: -89%;
         transition: left 0.3s;
         border-radius: 20px;
         padding-top: 10px;
         max-height: 50%;
+        overflow-y: hidden;
+    }
+
+    #nav-sections ul {
+        border-left: none;
     }
 
     #nav-sections li {
@@ -174,6 +179,7 @@ kbd {
     
     #nav-sections:hover {
         left: 0%;
+        overflow-y: auto;
     }
 
     .nav-highlighted {
