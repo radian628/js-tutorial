@@ -1,4 +1,4 @@
-let nav = document.getElementById("nav-sections");
+let nav = document.getElementById("section-nav");
 
 let headers = Array.from(document.querySelectorAll("h1:not(.no-nav), h2:not(.no-nav), h3:not(.no-nav), h4:not(.no-nav), h5:not(.no-nav), h6:not(.no-nav)"));
 
@@ -12,6 +12,7 @@ function getHeaderYPositions() {
 }
 
 let ys = [];
+
 
 
 let navListItems = [];
@@ -47,6 +48,29 @@ headers.forEach(header => {
     lastElement = list;
 });
 
+async function addSiteNav() {
+    let siteNavContent = `<li><a href="/index.html">Home</a></li>
+    <li>Days
+        <ul>
+            <li><a href="/days/day1.html">Day 1 - HTML</a></li>
+            <li><a href="/days/day2.html">Day 2 - Variables, Math, Comparison, If/Else, Functions</a></li>
+            <li><a href="/days/day3.html">Day 3 - || and &&, DRY, Objects, DOM, Events</a></li>
+            <li><a href="/days/day4.html">Day 4</a></li>
+            <li><a href="/days/day5.html">Day 5</a></li>
+            <li><a href="/days/day6.html">Day 6</a></li>
+            <li><a href="/days/day7.html">Day 7</a></li>
+            <li><a href="/days/day8.html">Day 8</a></li>
+            <li><a href="/days/day9.html">Day 9</a></li>
+            <li><a href="/days/day10.html">Day 10</a></li>
+        </ul>
+    </li>
+    `; 
+    let siteNav = document.createElement("ul");
+    siteNav.innerHTML = siteNavContent;
+    siteNav.id = "site-nav";
+    document.body.appendChild(siteNav);
+}
+
 function loop() {
     ys = getHeaderYPositions();
     let smallest = ys.reduce((previous, current) => Math.abs(previous.y) < Math.abs(current.y) ? previous : current, ys[0]);
@@ -56,5 +80,7 @@ function loop() {
     prevHighlighted = currentHighlighted;
     setTimeout(loop, 200);
 }
+
+addSiteNav();
 
 loop();
