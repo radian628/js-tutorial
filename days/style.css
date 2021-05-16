@@ -104,6 +104,11 @@ kbd {
     font-size: 1.5em;
     padding-left: 10px;
     text-align: right;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+#section-nav:hover {
+    opacity: 1;
 }
 #section-nav ul {
     list-style: none;
@@ -147,6 +152,11 @@ kbd {
     font-size: 1.5em;
     text-align: left;
     padding-right: 10px;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+#site-nav:hover {
+    opacity: 1;
 }
 #site-nav ul {
     list-style: none;

@@ -70,8 +70,6 @@ async function addSiteNav() {
     siteNav.id = "site-nav";
     let rootDir = siteNav.dataset.rootDir;
 
-    document.body.appendChild(siteNav);
-
     Array.from(document.querySelectorAll("#site-nav a")).forEach(a => {
         a.href = rootDir + a.dataset.href;
     });
