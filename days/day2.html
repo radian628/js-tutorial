@@ -44,13 +44,175 @@ console.log("world!");
                 </div>
             </div>
             <h2>Variables</h2>
+            <h3>Hello World Revisited</h3>
             <p>Let's change up our "Hello World" code a bit:</p>
             <pre>
 let variable = "Hello World";
-console.log(variable);
+console.log(variable);</pre>
+            <p>Type this into JSFiddle, and see what happens. It should output the same thing as the first "Hello World" program. What you've actually done here is create a <b>variable</b>. Let's analyze the first line:</p>
+            <pre>
+let variable = "Hello World";</pre>
+            <p>The <code>let</code> keyword creates, or declares a variable. The text after <code>let</code> is the name of the variable. In the example above, the variable's name is <code>variable</code>, though it could be any string of letters (no spaces though!). Next, we set it equal to the string <code>Hello World</code> with the <code>= "Hello World";</code> part. Remember, every line in JavaScript <i>should</i> end with a semicolon. It will still work without the semicolons, but this can lead to unexpected behavior.</p>
+            <p>Now for the second line:</p>
+            <pre>
+console.log(variable);</pre>
+            <p>When you write the name of a variable somewhere, it represents the underlying value of the variable. That's why <code>console.log(variable);</code> prints <samp>"Hello World"</samp>, not <samp>variable</samp>. It's just like how in math, you could set a variable <var>x</var> equal to 5. Then, wherever you see <var>x</var>, you can treat it as if it's just the number 5. Speaking of numbers...</p>
+            <h3>Numerical Variables</h3>
+            <p>Variables can be numbers too!</p>
+            <pre>
+let x = 5;
+console.log(x);</pre>
+            <p>As you might have expected, this will print the following to the console:</p>
+            <pre class="js-output">5</pre>
+            <h2>Math!</h2>
+            <p>You can do math on both numbers and variables with numerical values. Consider the following example:</p>
+            <pre>
+let y = 7;
+y = y + 3;
+console.log(y);</pre>
+            <p>Here's the output:</p>
+            <pre class="js-output">10</pre>
+            <p>Note that using single-letter variable names here is arbitrary. The type of data a variable represents has no influence on the name it can have. Another thing to note is that variables can be assigned and reassigned with the <code>=</code> operator (operators are just symbols that act on pieces of data). Remember to only use <code>let</code> when you define a variable <i>for the first time</i>. You can omit it for all subsequent reassignments of the variable.</p>
+            <h3>More Math</h3>
+            <p>Here's another one of those "predict the output" games. Guess what the program will output to the console (hint: <code>*</code> is multiplication):</p>
+            <pre>
+let foo = 5;
+let bar = 8;
+let baz = foo * bar + 2;
+console.log(baz);
             </pre>
-            <p>Type this into JSFiddle, and see what happens. It should output the same thing as the first "Hello World" program. What you've actually done here is create a <b>variable</b>. The <code>let</code> keyword creates, or declares a variable, identified by its name (the text after it). In the example above, the variable's name is <code>variable</code>. Next, we set it equal to the string <code>Hello World</code> with the <code>= "Hello World";</code> part.</p>
-            <p></p>
+            <p>Once you've made your guess, type the code into JSFiddle and see if the output matches what you guessed.</p>
+            <h3>Math Operators</h3>
+            <p>Here is a list of some common math operators:</p>
+            <table>
+                    <tr>
+                        <th class="bold">Operator</th>
+                        <th class="bold">Name</th>
+                        <th class="bold">Example Usage</th>
+                        <th class="bold">Output</th>
+                    </tr>
+                    <tr>
+                        <th><code>+</code></th>
+                        <th>Addition</th>
+                        <th><code>6 + 3</code></th>
+                        <th><code>9</code></th>
+                    </tr>
+                    <tr>
+                        <th><code>-</code></th>
+                        <th>Subtraction</th>
+                        <th><code>6 - 3</code></th>
+                        <th><code>3</code></th>
+                    </tr>
+                    <tr>
+                        <th><code>*</code></th>
+                        <th>Multiplication</th>
+                        <th><code>6 * 3</code></th>
+                        <th><code>18</code></th>
+                    </tr>
+                    <tr>
+                        <th><code>/</code></th>
+                        <th>Division</th>
+                        <th><code>6 / 3</code></th>
+                        <th><code>2</code></th>
+                    </tr>
+                    <tr>
+                        <th><code>%</code></th>
+                        <th>Remainder</th>
+                        <th><code>6 % 3</code></th>
+                        <th><code>0</code></th>
+                    </tr>
+            </table>
+            <h3>Order of Operations (PEMDAS)</h3>
+            <p>PEMDAS applies in JavaScript. In other words, statements within parentheses execute first. The following code outputs <samp>14</samp>.</p>
+            <pre>console.log(10 + 8 / 2);</pre>
+            <p>Conversely, this code outputs <samp>9</samp>.</p>
+            <pre>console.log((10 + 8) / 2);</pre>
+            <h2>Booleans</h2>
+            <p>Booleans are another data type in JavaScript (a <b>data type</b> is a distinct form that data (i.e. variables) can take). Booleans can only take one of two values: <code>true</code> or <code>false</code>.</p>
+            <pre>
+let boolean = false;
+let anotherBoolean = false;</pre>
+            <h3>Booleans from Comparison Operators</h3>
+            <p>Comparison operators are operators that- as you might expect- compare the size of two numbers. They output booleans- <code>true</code> if the comparison is accurate, and <code>false</code> if it is not. As an example, <code>6 &gt; 2</code> is <code>true</code>, whereas <code>5 &lt; 4</code> is <code>false</code>.</p>
+            <h3>Comparison Operator Table</h3>
+            <table>
+                    <tr>
+                        <th class="bold">Operator</th>
+                        <th class="bold">Name</th>
+                        <th class="bold">Example 1</th>
+                        <th class="bold">Output 1</th>
+                        <th class="bold">Example 2</th>
+                        <th class="bold">Output 2</th>
+                    </tr>
+                    <tr>
+                        <th><code>&gt;</code></th>
+                        <th>Greater Than</th>
+                        <th><code>6 &gt; 3</code></th>
+                        <th><code>true</code></th>
+                        <th><code>4 &gt; 4</code></th>
+                        <th><code>false</code></th>
+                    </tr>
+                    <tr>
+                        <th><code>&lt;</code></th>
+                        <th>Less Than</th>
+                        <th><code>6 &lt; 3</code></th>
+                        <th><code>false</code></th>
+                        <th><code>4 &lt; 4</code></th>
+                        <th><code>false</code></th>
+                    </tr>
+                    <tr>
+                        <th><code>&gt;=</code></th>
+                        <th>Greater Than or Equal To</th>
+                        <th><code>6 &gt;= 3</code></th>
+                        <th><code>true</code></th>
+                        <th><code>4 &gt;= 4</code></th>
+                        <th><code>true</code></th>
+                    </tr>
+                    <tr>
+                        <th><code>&lt;=</code></th>
+                        <th>Less Than or Equal To</th>
+                        <th><code>6 &lt;= 3</code></th>
+                        <th><code>false</code></th>
+                        <th><code>4 &lt;= 4</code></th>
+                        <th><code>true</code></th>
+                    </tr>
+                    <tr>
+                        <th><code>==</code></th>
+                        <th>Equal</th>
+                        <th><code>6 == 3</code></th>
+                        <th><code>false</code></th>
+                        <th><code>4 == 4</code></th>
+                        <th><code>true</code></th>
+                    </tr>
+                    <tr>
+                        <th><code>!=</code></th>
+                        <th>Not Equal</th>
+                        <th><code>6 != 3</code></th>
+                        <th><code>true</code></th>
+                        <th><code>4 != 4</code></th>
+                        <th><code>false</code></th>
+                    </tr>
+            </table>
+            <p>Warning: <b>Do not confuse <code>==</code> (equals) with <code>=</code> (assignment).</b> The former tests whether two things are equal (outputting <code>true</code> if they are, and <code>false</code> otherwise), while the latter sets the variable on the left to the value on the right.</p>
+            <h2>If-Statements</h2>
+            <p>If-statements allow you to run code conditionally- in other words, they only run the code within them <b>if</b> a given boolean is <code>true</code>. For example, the code below only prints <samp>"x is greater than 7!"</samp> if the variable <code>x</code> is greater than 7.</p>
+            <pre>
+let x = 10;
+if (x > 7) {
+    console.log("x is greater than 7!");
+}
+x = 5;
+if (x > 7) {
+    console.log("x is greater than 7!");
+}</pre>
+            <p>The way the code is currently structured, how many times will it output <samp>"x is greater than 7!"</samp>?</p>
+            
+            <div class="spoiler">
+                <input type="checkbox">
+                <div>Once
+                </div>
+            </div>
+            <h3>A More Complex Example</h3>
         </div>
         <ul id="site-nav" data-root-dir="..">
 

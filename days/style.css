@@ -26,6 +26,13 @@ p, li {
     margin: 10px 40px;
 }
 
+samp {
+    background: #eef5ed;
+    border-radius: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
 .article {
     margin: 10px calc(50vw - 20em);
     margin-bottom: 10%;
@@ -59,6 +66,19 @@ kbd {
     border: none;
 }
 
+
+th {
+    padding-right: 20px;
+    font-weight: normal;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background: #f0f0f0;
+}
 
 
 .spoiler {
