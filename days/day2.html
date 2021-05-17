@@ -17,18 +17,40 @@
             <p>A programming language is- put simply- a list of instructions executed by a computer. Unless you tell the computer to do otherwise, these instructions will appear to execute in sequence, one after the next. They can do a variety of things, though most of it boils down to manipulating data, inputting data, outputting data, and deciding <i>when</i> to manipulate data.</p>
             <h3>Applications of JavaScript</h3>
             <p>As you probably know by now, JavaScript (JS for short) is mainly used to make web pages interactive. There's even JavaScript on this page! It creates that useful navigation section you see on the left, preventing me from having to spend time copying all of the text in the headers over there (and subsequently having to update them all if I want to make any changes).</p>
-            <h3>console.log</h3>
+            <h2>Hello World with console.log</h2>
             <h3>"Hello World"</h3>
             <p>Open up <a href="https://jsfiddle.net">JSFiddle</a> (you now know where the JS is from!) and type the following into the <b>JavaScript</b> tab</p>
             <pre>console.log("Hello World!");</pre>
             <p>Now find the console in the result tab. You might have to disable and re-enable the "Console in the editor" option to get it to display. The console should appear in the "Result" tab, and should contain the following text upon running the code:</p>
             <pre class="js-output">"Hello World!"</pre>
-            <h2>Predict the Output</h2>
+            <h3>Predict the Output</h3>
             <p><b>Without typing this into JSFiddle</b>, predict what will appear in the console with the following code. Then, confirm your prediction by typing it into JSFiddle.</p>
             <pre>
 console.log("Hello World!");
 console.log("Goodbye World!"); </pre>
-            <h3></h3>
+            <h3>Predict the Code</h3>
+            <p>Now do what's essentially the reverse. Write JavaScript code that produces the following output:</p>
+            <pre class="js-output">
+"Hello"
+"world!"</pre>
+            <p>Solution:</p>
+            <div class="spoiler">
+                <input type="checkbox">
+                <div>
+<pre class="noborder">
+console.log("Hello");
+console.log("world!");
+</pre>
+                </div>
+            </div>
+            <h2>Variables</h2>
+            <p>Let's change up our "Hello World" code a bit:</p>
+            <pre>
+let variable = "Hello World";
+console.log(variable);
+            </pre>
+            <p>Type this into JSFiddle, and see what happens. It should output the same thing as the first "Hello World" program. What you've actually done here is create a <b>variable</b>. The <code>let</code> keyword creates, or declares a variable, identified by its name (the text after it). In the example above, the variable's name is <code>variable</code>. Next, we set it equal to the string <code>Hello World</code> with the <code>= "Hello World";</code> part.</p>
+            <p></p>
         </div>
         <ul id="site-nav" data-root-dir="..">
 
