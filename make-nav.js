@@ -64,6 +64,7 @@ async function addSiteNav() {
             <li><a data-href="/days/day10.html">Day 10</a></li>
         </ul>
     </li>
+    <li><a data-href="/quick-reference.html">Quick Reference (by day)</a></li>
     `; 
     let siteNav = document.getElementById("site-nav");
     siteNav.innerHTML = siteNavContent;

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML/JS Day 1</title>
+        <link rel="stylesheet" type="text/css" href="./article-style.css">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    </head>
+    <body>
+        <ul id="section-nav">
+            
+        </ul>
+        <div class="article">
+            <h1>Quick Reference</h1>
+            <p>This document contains a lot of basic information related to HTML and JavaScript, all in a condensed form for easy, convenient access. Use this document if you forgot some concept and need a quick reminder.</p>
+            <h2>Day 1</h2>
+            <h3>HTML Element/Tag Syntax</h3>
+            <p>Example HTML Tag:</p>
+            <pre>&lt;tagname&gt;inner text&lt;/tagname&gt;</pre>
+            <p>Opening tag: <code>&lt;tagname&gt;</code></p>
+            <p>Closing tag: <code>&lt;/tagname&gt;</code></p>
+            <p>Tag name: <code>tagname</code></p>
+            <p>Inside: <code>inner text</code></p>
+            <h3>Keyboard Shortcuts</h3>
+            <p>Remember: replace all <kbd>Ctrl</kbd> with <kbd>Command</kbd> if on MacOS!</p>
+            <table>
+                <tr><th>Shortcut</th><th>Usage</th></tr>
+                <tr>
+                    <td><kbd>Ctrl+C</kbd></td>
+                    <td>Copies selection to the clipboard.</td>
+                </tr>
+                <tr>
+                    <td><kbd>Ctrl+V</kbd></td>
+                    <td>Pastes/inserts data from the clipboard.</td>
+                </tr>
+                <tr>
+                    <td><kbd>Ctrl+X</kbd></td>
+                    <td>Deletes selection and copies it to the clipboard.</td>
+                </tr>
+                <tr>
+                    <td><kbd>Ctrl+A</kbd></td>
+                    <td>Selects everything.</td>
+                </tr>
+                <tr>
+                    <td><kbd>Ctrl+S</kbd></td>
+                    <td>Saves.</td>
+                </tr>
+                <tr>
+                    <td><kbd>Arrow Key</kbd></td>
+                    <td>Navigate through text.</td>
+                </tr>
+                <tr>
+                    <td><kbd>Shift+Arrow Key</kbd></td>
+                    <td>Same as <kbd>Arrow Key</kbd>, except it selects the text you navigate past.</td>
+                </tr>
+                <tr>
+                    <td><kbd>Ctrl+Arrow Key</kbd></td>
+                    <td>Same as <kbd>Arrow Key</kbd>, except it skips whole words (PC) or whole lines (MacOS).</td>
+                </tr>
+                <tr>
+                    <td><kbd>Ctrl+Shift+Arrow Key</kbd></td>
+                    <td>Combines the effects of <kbd>Shift+Arrow Key</kbd> and <kbd>Ctrl+Arrow Key</kbd>.</td>
+                </tr>
+                <tr>
+                    <td><kbd>Tab</kbd> (while text is selected)</td>
+                    <td>In code editors, this will indent all selected lines.</td>
+                </tr>
+                <tr>
+                    <td><kbd>Shift+Tab</kbd> (while text is selected)</td>
+                    <td>In code editors, this will unindent all selected lines.</td>
+                </tr>
+            </table>
+            <h3>Basic HTML Elements</h3>
+            <p>Here are some HTML elements you should know (not comprehensive!)</p>
+            <table>
+                <tr>
+                    <th>Tag Name(s)</th><th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>&lt;!DOCTYPE html&gt;</code></td>
+                    <td>Always start your HTML with this. It tells whatever's reading it that this is in fact an HTML document. Not really a <i>real</i> HTML tag.</td>
+                </tr>
+                <tr>
+                    <td><code>html</code></td>
+                    <td>All HTML tags go somewhere within the <code>html</code> tag. Should contain a <code>head</code>, followed by a <code>body</code>.</td>
+                </tr>
+                <tr>
+                    <td><code>head</code></td>
+                    <td>Contains meta-information about the document (description, title that appears on tabs, search engine info, etc.).</td>
+                </tr>
+                <tr>
+                    <td><code>body</code></td>
+                    <td>Contains the actual HTML that you see as text, images, etc. on the screen.</td>
+                </tr>
+                <tr>
+                    <td><code>h1, h2, h3, h4, h5, h6</code></td>
+                    <td>Page headers. Smaller number means the header is more important. Headers should form a hierarchy.</td>
+                </tr>
+                <tr>
+                    <td><code>button</code></td>
+                    <td>A button.</td>
+                </tr>
+                <tr>
+                    <td><code>input</code></td>
+                    <td>Any kind of user input (text input, numerical input, color input, date input, etc.). <b>Does not have a closing tag!</b></td>
+                </tr>
+                <tr>
+                    <td><code>b</code></td>
+                    <td>Bold text for the purpose of emphasis.</td>
+                </tr>
+                <tr>
+                    <td><code>div</code></td>
+                    <td>Generic divider (does nothing on its own; useful with JS and CSS).</td>
+                </tr>
+                <tr>
+                    <td><code>ul</code></td>
+                    <td>Unordered list.</td>
+                </tr>
+                <tr>
+                    <td><code>li</code></td>
+                    <td>List item. One or more of these should go directly inside a <code>ul</code>.</td>
+                </tr>
+            </table>
+            <h2>Day 2</h2>
+            <h3>Output</h3>
+            <p>Output to the console (so you can see the results of your code) with the <code>console.log</code> function (include parentheses after <code>console.log</code> to call it!)</p>
+            <h3>Variables</h3>
+            <p>Variables can be declared with the keyword <code>let</code>, followed by the variable name. You can then set the variable equal to a value using <code>=</code> and then a value. <b>Only use <code>let</code> when you use a variable for the first time!</b></p>
+            <h3>Math Operators</h3>
+            <table>
+                    <tr>
+                        <th class="bold">Operator</th>
+                        <th class="bold">Name</th>
+                        <th class="bold">Example Usage</th>
+                        <th class="bold">Output</th>
+                    </tr>
+                    <tr>
+                        <td><code>+</code></td>
+                        <td>Addition</td>
+                        <td><code>6 + 3</code></td>
+                        <td><code>9</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>-</code></td>
+                        <td>Subtraction</td>
+                        <td><code>6 - 3</code></td>
+                        <td><code>3</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>*</code></td>
+                        <td>Multiplication</td>
+                        <td><code>6 * 3</code></td>
+                        <td><code>18</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>/</code></td>
+                        <td>Division</td>
+                        <td><code>6 / 3</code></td>
+                        <td><code>2</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>%</code></td>
+                        <td>Remainder</td>
+                        <td><code>6 % 3</code></td>
+                        <td><code>0</code></td>
+                    </tr>
+            </table>
+            <h3>Comparison Operators</h3>
+            <table>
+                <tr>
+                    <th class="bold">Operator</th>
+                    <th class="bold">Name</th>
+                    <th class="bold">Example 1</th>
+                    <th class="bold">Output 1</th>
+                    <th class="bold">Example 2</th>
+                    <th class="bold">Output 2</th>
+                </tr>
+                <tr>
+                    <td><code>&gt;</code></td>
+                    <td>Greater Than</td>
+                    <td><code>6 &gt; 3</code></td>
+                    <td><code>true</code></td>
+                    <td><code>4 &gt; 4</code></td>
+                    <td><code>false</code></td>
+                </tr>
+                <tr>
+                    <td><code>&lt;</code></td>
+                    <td>Less Than</td>
+                    <td><code>6 &lt; 3</code></td>
+                    <td><code>false</code></td>
+                    <td><code>4 &lt; 4</code></td>
+                    <td><code>false</code></td>
+                </tr>
+                <tr>
+                    <td><code>&gt;=</code></td>
+                    <td>Greater Than or Equal To</td>
+                    <td><code>6 &gt;= 3</code></td>
+                    <td><code>true</code></td>
+                    <td><code>4 &gt;= 4</code></td>
+                    <td><code>true</code></td>
+                </tr>
+                <tr>
+                    <td><code>&lt;=</code></td>
+                    <td>Less Than or Equal To</td>
+                    <td><code>6 &lt;= 3</code></td>
+                    <td><code>false</code></td>
+                    <td><code>4 &lt;= 4</code></td>
+                    <td><code>true</code></td>
+                </tr>
+                <tr>
+                    <td><code>==</code></td>
+                    <td>Equal</td>
+                    <td><code>6 == 3</code></td>
+                    <td><code>false</code></td>
+                    <td><code>4 == 4</code></td>
+                    <td><code>true</code></td>
+                </tr>
+                <tr>
+                    <td><code>!=</code></td>
+                    <td>Not Equal</td>
+                    <td><code>6 != 3</code></td>
+                    <td><code>true</code></td>
+                    <td><code>4 != 4</code></td>
+                    <td><code>false</code></td>
+                </tr>
+            </table>
+            <h3>Functions</h3>
+            <p>Functions are named blocks of code that help get rid of repetition. You can create one with the keyword <code>function</code>, followed by the function name, parentheses (containing comma-separated arguments), and finally curly brackets containing the code. Here's a function that writes <samp>"Hello World!"</samp> to the console:</p>
+            <pre>
+function helloWorld() {
+    console.log("Hello World!");
+}</pre>
+            <p>Here is one that adds three numbers together, and outputs the result to the console:</p>
+            <pre>
+function addThreeNums(a, b, c) {
+    console.log(a + b + c);
+}</pre>
+            <p>To call a function, type out its name, followed by parentheses (regardless of whether there's arguments or not). Put the values you want the arguments to take between the parentheses. For example, <code>addThreeNums(1, 2, 3);</code> will print <samp>6</samp> to the console.</p>
+            <h3>Data Types</h3>
+            <p>Here are a few data types you'll frequently encounter in JavaScript:</p>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Usage</th>
+                    <th>Examples</th>
+                </tr>
+                <tr>
+                    <td>String</td>
+                    <td>Text; a list of characters.</td>
+                    <td>Put strings between single quotes (''), double quotes(""), or backticks (``).</td>
+                    <td><ul>
+                        <li><code>'foo'</code></li>
+                        <li><code>"Hello World"</code></li>
+                        <li><code>`JavaScript!`</code></li>
+                        <li><code>"5"</code> - This is not a number! The quotes make it a string!</li>
+                    </ul></td>
+                </tr>
+                <tr>
+                    <td>Number</td>
+                    <td>Any number. Can be an integer, a decimal, positive or negative.</td>
+                    <td>Numbers can be written as-is, or in scientific notation. For scientific notation, add <code>e+<b>N</b></code> to the end of the number, where <code><b>N</b></code> is the power of 10 to multiply by (e.g. <code>e+2</code> means "multiply by 100"). For negative powers of 10, use <code>e-<b>N</b></code>.</td>
+                    <td><ul>
+                        <li><code>5</code></li>
+                        <li><code>-2.34567</code></li>
+                        <li><code>1.2e+3</code> - Equal to 1200</li>
+                        <li><code>35e-2</code> - Equal to 0.35</li>
+                    </ul></td>
+                </tr>
+                <tr>
+                    <td>Boolean</td>
+                    <td>Represents a binary choice (two options). Can be either <code>true</code> or <code>false</code>.</td>
+                    <td>Booleans are written as-is, though they are often found as the result of comparison operators.</td>
+                    <td><ul>
+                        <li><code>true</code></li>
+                        <li><code>false</code></li>
+                    </ul></td>
+                </tr>
+                <tr>
+                    <td>Function</td>
+                    <td>Represents a block of JavaScript code.</td>
+                    <td>Created with the keyword <code>function</code>, followed by parentheses containing a list of comma-separated arguments, and then curly brackets which will contain the code the function represents.</td>
+                    <td><ul>
+                        <li><pre>
+function cube(x) {
+    console.log(x * x * x);
+}</pre></li>
+<li><pre>
+function sayHello(name) {
+    console.log("Hello, ");
+    console.log(name);
+}</pre></li>
+                    </ul></td>
+                </tr>
+            </table>
+        </div>
+        <ul id="site-nav" data-root-dir=".">
+
+        </ul>
+        <script src="./make-nav.js"></script>
+    </body>
+</html>

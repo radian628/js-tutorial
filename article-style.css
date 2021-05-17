@@ -1,10 +1,10 @@
 h1, h2, h3, h4 {
     font-family: 'Times New Roman', Times, serif;
-    margin-top: 80px;
+    margin-top: 30px;
     color: #122542;
 }
 
-p, li {
+p, li, td {
     font-family: 'Helvetica', sans-serif;
 }
 
@@ -69,7 +69,6 @@ kbd {
 
 th {
     padding-right: 20px;
-    font-weight: normal;
 }
 
 .bold {
