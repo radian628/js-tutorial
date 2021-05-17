@@ -85,10 +85,10 @@ tr:nth-child(even) {
     background: #edf1f5;
     border-radius: 10px;
 }
-.spoiler > input + div {
+.spoiler > input + * {
     display: none;
 }
-.spoiler > input:checked + div {
+.spoiler > input:checked + * {
     display: block;
 }
 .spoiler > input::after {

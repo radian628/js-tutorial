@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>HTML/JS Day 2</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="../article-style.css">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
     </head>
     <body>
@@ -16,7 +16,7 @@
             <p>Welcome back! Let's get started: JavaScript is a <b>programming language</b>. But what even is a programming language?</p>
             <p>A programming language is- put simply- a list of instructions executed by a computer. Unless you tell the computer to do otherwise, these instructions will appear to execute in sequence, one after the next. They can do a variety of things, though most of it boils down to manipulating data, inputting data, outputting data, and deciding <i>when</i> to manipulate data.</p>
             <h3>Applications of JavaScript</h3>
-            <p>As you probably know by now, JavaScript (JS for short) is mainly used to make web pages interactive. There's even JavaScript on this page! It creates that useful navigation section you see on the left, preventing me from having to spend time copying all of the text in the headers over there (and subsequently having to update them all if I want to make any changes).</p>
+            <p>As you probably know by now, JavaScript (JS for short) is mainly used to make web pages interactive. There's even JavaScript on this page! Among other things, it creates that useful navigation section you see on the left, preventing me from having to spend time copying all of the text in the headers over there (and subsequently having to update them all if I want to make any changes).</p>
             <h2>Hello World with console.log</h2>
             <h3>"Hello World"</h3>
             <p>Open up <a href="https://jsfiddle.net">JSFiddle</a> (you now know where the JS is from!) and type the following into the <b>JavaScript</b> tab</p>
@@ -123,18 +123,20 @@ console.log(baz);
                     </tr>
             </table>
             <h3>Order of Operations (PEMDAS)</h3>
-            <p>PEMDAS applies in JavaScript. In other words, statements within parentheses execute first. The following code outputs <samp>14</samp>.</p>
+            <p>PEMDAS applies in JavaScript. In other words, statements within parentheses execute first. Without parentheses, multiplication and division happen before addition and subtraction. The following code outputs <samp>14</samp>.</p>
             <pre>console.log(10 + 8 / 2);</pre>
             <p>Conversely, this code outputs <samp>9</samp>.</p>
             <pre>console.log((10 + 8) / 2);</pre>
             <h2>Booleans</h2>
+            <h3>What are Booleans?</h3>
             <p>Booleans are another data type in JavaScript (a <b>data type</b> is a distinct form that data (i.e. variables) can take). Booleans can only take one of two values: <code>true</code> or <code>false</code>.</p>
             <pre>
-let boolean = false;
+let boolean = true;
 let anotherBoolean = false;</pre>
             <h3>Booleans from Comparison Operators</h3>
-            <p>Comparison operators are operators that- as you might expect- compare the size of two numbers. They output booleans- <code>true</code> if the comparison is accurate, and <code>false</code> if it is not. As an example, <code>6 &gt; 2</code> is <code>true</code>, whereas <code>5 &lt; 4</code> is <code>false</code>.</p>
+            <p>Comparison operators are operators that- as you might expect- compare the size of two numbers. They output booleans- <code>true</code> if the comparison is accurate, and <code>false</code> if it is not. As an example, <code>6 &gt; 2</code> is <code>true</code> (because six is, in fact, greater than two), whereas <code>5 &lt; 4</code> is <code>false</code> (because five is not less than four).</p>
             <h3>Comparison Operator Table</h3>
+            <p>This might look a bit intimidating. However, if you're well-versed with comparison from your math class, you'll likely only need to consider the leftmost two rows (the others are just examples).</p>
             <table>
                     <tr>
                         <th class="bold">Operator</th>
@@ -205,18 +207,200 @@ x = 5;
 if (x > 7) {
     console.log("x is greater than 7!");
 }</pre>
-            <p>The way the code is currently structured, how many times will it output <samp>"x is greater than 7!"</samp>?</p>
-            
+            <p>The way the code is currently structured, how many times will it output <samp>"x is greater than 7!"</samp>? Which if-statement(s) will run?</p>
+            <p>Answer:</p>
             <div class="spoiler">
                 <input type="checkbox">
-                <div>Once
+                <p>Once. Only the first if-statement will run.
+                </p>
+            </div>
+            <h3>Else</h3>
+            <p>Take the following example:</p>
+            <pre>
+let chanceOfRain = 0.75;
+if (chanceOfRain &gt; 0.5) {
+    console.log("It is likely to rain.");
+}
+if (chanceOfRain &lt;= 0.5) {
+    console.log("It is unlikely to rain.");
+}</pre>
+            <p>You may quickly realize that the second if-statement will only run if the first one doesn't. After all, the first one uses a "greater than" condition, whereas the second uses a "less than or equal to" condition- both with the same operands (operands is a term for what operators operate on)! The <code>else</code> keyword can simplify this code- it lets you provide a block of code that will only run if the preceding if-statement does not.</p>
+            <p>The following example functions identically to the previous one, but uses an <code>else</code> block instead of another if-statement. To use <code>else</code>, first type the word <code>else</code>, followed by curly brackets, in which you'll put your code. Unlike the if-statement, you don't need parentheses.</p>
+            <pre>
+let chanceOfRain = 0.75;
+if (chanceOfRain &gt; 0.5) {
+    console.log("It is likely to rain.");
+} else {
+    console.log("It is unlikely to rain.");
+}</pre>
+            <p>Side note: Changing the structure of code while keeping the same functionality (which is what we did here) is called <b>refactoring</b>.</p>
+            <h3>Else If</h3>
+            <p>Multiple if-statements can be chained together using <code>else if</code>. <code>else if</code> functions identically to <code>else</code>, except the code after the <code>else if</code> only runs if the supplied condition is true. Multiple <code>else if</code>s can even be chained together, each one only executing if all the previous ones have not.</p> 
+            <p>To use <code>else if</code>, just type <code>else</code> followed by an if-statement just like you'd write it on your own.</p>
+            <p>Consider the following example, which does exactly what you might expect:</p>
+            <pre>
+let chanceOfRain = 0.2;
+if (chanceOfRain &gt; 0.8) {
+    console.log("It is likely to rain.");
+} else if (chanceOfRain &gt; 0.3) {
+    console.log("It is somewhat likely to rain.");
+} else {
+    console.log("It is unlikely to rain.");
+}</pre>
+            <p>Given the above code, what is the likelihood of rain? Check your answer by typing the example into JSFiddle.</p>
+            <h3>Another Example of Else-if</h3>
+            <p>Edit the previous example so that it prints <samp>"It's definitely not going to rain!"</samp> if the chance of rain is exactly 0. Test your code with different values for <code>chanceOfRain</code> to see if it works! Note that your solution might look different but still work. There are multiple solutions to essentially every non-trivial problem in JavaScript!</p>
+            <p>Possible solution:</p>
+            <div class="spoiler">
+                <input type="checkbox">
+                <pre>
+let chanceOfRain = 0.2;
+if (chanceOfRain &gt; 0.8) {
+    console.log("It is likely to rain.");
+} else if (chanceOfRain &gt; 0.3) {
+    console.log("It is somewhat likely to rain.");
+} else if (chanceOfRain != 0) {
+    console.log("It is unlikely to rain.");
+} else {
+    console.log("It's definitely not going to rain!");
+}</pre>
+            </div>
+            <h2>Functions</h2>
+            <p>Let's say we have to check the chance of rain three different times, using the previous code we wrote. Let's represent the three chances we're interested in using variables:</p>
+            <pre>
+let chanceOfRain1 = 0;
+let chanceOfRain2 = 0.5;
+let chanceOfRain3 = 0.9;</pre>
+            <p>We could, of course, do it like this:</p>
+            <pre>
+let chanceOfRain1 = 0;
+let chanceOfRain2 = 0.5;
+let chanceOfRain3 = 0.9;
+
+if (chanceOfRain1 &gt; 0.8) {
+    console.log("It is likely to rain.");
+} else if (chanceOfRain1 &gt; 0.3) {
+    console.log("It is somewhat likely to rain.");
+} else if (chanceOfRain1 != 0) {
+    console.log("It is unlikely to rain.");
+} else {
+    console.log("It's definitely not going to rain!");
+}
+
+if (chanceOfRain2 &gt; 0.8) {
+    console.log("It is likely to rain.");
+} else if (chanceOfRain2 &gt; 0.3) {
+    console.log("It is somewhat likely to rain.");
+} else if (chanceOfRain2 != 0) {
+    console.log("It is unlikely to rain.");
+} else {
+    console.log("It's definitely not going to rain!");
+}
+
+if (chanceOfRain3 &gt; 0.8) {
+    console.log("It is likely to rain.");
+} else if (chanceOfRain3 &gt; 0.3) {
+    console.log("It is somewhat likely to rain.");
+} else if (chanceOfRain3 != 0) {
+    console.log("It is unlikely to rain.");
+} else {
+    console.log("It's definitely not going to rain!");
+}</pre>
+            <p>However, as you can probably see, this is horribly repetitive. Imagine if you wanted to add a condition that says <samp>"It will certaintly rain!"</samp> if the chance of rain is 1? You'd have to do that three times!</p>
+            <p>Because of this (along with their general laziness), programmers <i>hate</i> needless repetition, and thus, they've developed tools to combat it. In fact, if any of your code is extremely repetitive, you should seek out a better way, because a disgruntled programmer has likely already thought of one, and added it to the language.</p>
+            <p>Often the best way of eliminating repetition is using <b>functions</b>. A function is simply a named block of code that you can run as many times as you want. They are created with the keyword <code>function</code>, followed by the function name (which works the same as a variable name), after which you put parentheses, and finally curly brackets in which you put your code. Here's a function that simply writes <samp>"Hello World!"</samp> to the console:</p>
+            <pre>
+function helloWorld() {
+    console.log("Hello World!");
+}</pre>
+            <p>Between the parentheses, you can optionally put a list of <b>function arguments</b>. These are just a bunch of pieces of data that you "pass" or "plug" into the function, influencing its behavior. In math class, if you've seen something like <var>f(x)</var>, the function argument is basically the <var>x</var>.</p>
+            <p>To actually run the function, type the name of the function, followed by a set of parentheses. Between the parentheses, put the values you want the arguments to take. Even if there are no arguments, you should still include the parentheses! In JavaScript, <b>functions are just another type of data</b> (you'll hear me repeat this a lot), so just writing the function name merely refers to the function itself!</p>
+            <p>Here's the previous example, refactored to use a function:</p>
+            <pre>
+function describeChanceOfRain(chanceOfRain) {
+    if (chanceOfRain &gt; 0.8) {
+        console.log("It is likely to rain.");
+    } else if (chanceOfRain &gt; 0.3) {
+        console.log("It is somewhat likely to rain.");
+    } else if (chanceOfRain != 0) {
+        console.log("It is unlikely to rain.");
+    } else {
+        console.log("It's definitely not going to rain!");
+    }
+}
+
+let chanceOfRain1 = 0;
+let chanceOfRain2 = 0.5;
+let chanceOfRain3 = 0.9;
+
+describeChanceOfRain(chanceOfRain1);
+describeChanceOfRain(chanceOfRain2);
+describeChanceOfRain(chanceOfRain3);</pre>
+            <p>Props to you if you figured this out already, but our good old friend <code>console.log</code> is a function too!</p>
+            <h2>FizzBuzz</h2>
+            <p>Here's an assignment to test your skills: Create a function <code>fizzBuzz(x)</code> that abides by the following rules:</p>
+            <ul>
+                <li>If <code>x</code> is divisible by 3, print <samp>"Fizz"</samp> to the console.</li>
+                <li>If <code>x</code> is divisible by 5, print <samp>"Buzz"</samp> to the console.</li>
+                <li>If <code>x</code> is divisible by both 3 and 5, print <samp>"FizzBuzz"</samp> (and only <samp>"FizzBuzz"</samp>) to the console.</li>
+                <li>If none of the previous three conditions apply, print the value of <code>x</code> to the console.</li>
+            </ul>
+            <p>Here's a table showing what values x should output (make it work for any positive integer however- not just these!):</p>
+            <table>
+                <tr>
+                    <th class="bold">Expression</th>
+                    <th class="bold">Output</th>
+                </tr>
+                <tr><th><code>fizzBuzz(1)</code></th><th><samp>1</samp></th></tr>
+                <tr><th><code>fizzBuzz(2)</code></th><th><samp>2</samp></th></tr>
+                <tr><th><code>fizzBuzz(3)</code></th><th><samp>"Fizz"</samp></th></tr>
+                <tr><th><code>fizzBuzz(4)</code></th><th><samp>4</samp></th></tr>
+                <tr><th><code>fizzBuzz(5)</code></th><th><samp>"Buzz"</samp></th></tr>
+                <tr><th><code>fizzBuzz(6)</code></th><th><samp>"Fizz"</samp></th></tr>
+                <tr><th><code>fizzBuzz(7)</code></th><th><samp>7</samp></th></tr>
+                <tr><th><code>fizzBuzz(8)</code></th><th><samp>8</samp></th></tr>
+                <tr><th><code>fizzBuzz(9)</code></th><th><samp>"Fizz"</samp></th></tr>
+                <tr><th><code>fizzBuzz(10)</code></th><th><samp>"Buzz"</samp></th></tr>
+                <tr><th><code>fizzBuzz(11)</code></th><th><samp>11</samp></th></tr>
+                <tr><th><code>fizzBuzz(12)</code></th><th><samp>"Fizz"</samp></th></tr>
+                <tr><th><code>fizzBuzz(13)</code></th><th><samp>13</samp></th></tr>
+                <tr><th><code>fizzBuzz(14)</code></th><th><samp>14</samp></th></tr>
+                <tr><th><code>fizzBuzz(15)</code></th><th><samp>"FizzBuzz"</samp></th></tr>
+            </table>
+            <p>Fun Fact: This is a common question on job interviews!</p>
+            <h2>Challenge: N Hello Worlds</h2>
+            <p>Here's a fun challenge: Create a function <code>helloWorlds</code> that prints <samp>Hello World!</samp> <code>n</code> times, where <code>n</code> is one of its arguments. So, for example, <code>helloWorlds(4);</code> would print the following:</p>
+            <pre class="js-output">
+"Hello World!"
+"Hello World!"
+"Hello World!"
+"Hello World!"</pre>
+            <p>Stuck? Here's a hint:</p>
+            <div class="spoiler">
+                <input type="checkbox">
+                <p>Hint: <code>helloWorlds</code> should <i>call itself.</i></p>
+            </div>
+            <p>Possible solution:</p>
+            <div class="spoiler">
+                <input type="checkbox">
+                <div>
+                    
+                <pre>
+function helloWorlds(n) {
+    if (n > 0) {
+        console.log("Hello World!");
+        helloWorlds(n - 1);
+    }
+}</pre>
+                    <p>The phenomenon of a function calling itself is called <b>recursion</b>. A function that does recursion is called a <b>recursive function</b>.</p>
                 </div>
             </div>
-            <h3>A More Complex Example</h3>
+            <h2>Conclusion</h2>
+            <p>That's it for Day 2! See you at <a href="day3.html">Day 3</a>, where we'll combine booleans/conditions using logical operators, learn more about avoiding repetition, discover the power of objects, and combine JavaScript and HTML together!</p>
         </div>
         <ul id="site-nav" data-root-dir="..">
 
         </ul>
-        <script src="./make-nav.js"></script>
+        <script src="../make-nav.js"></script>
     </body>
 </html>
