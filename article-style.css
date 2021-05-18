@@ -291,7 +291,7 @@ tr:nth-child(even) {
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #111111;
-        color: white;
+        color: #EEEEEE;
     }
     h1, h2, h3, h4, h5, h6 {
         color: #ffffff;
@@ -348,10 +348,10 @@ tr:nth-child(even) {
         border-right-color: #6d85a9;
     }
     #section-nav a {
-        color: #9ab8e9;
+        color: #c0d5f7;
     }
     #section-nav a:hover {
-        color: #c6b1e6;
+        color: #d4c2ee;
     }
     .nav-highlighted {
         color: rgb(255, 114, 114) !important;
@@ -362,9 +362,9 @@ tr:nth-child(even) {
         border-left-color:#57967c;
     }
     #site-nav a {
-        color: #9bdabd;
+        color: #bde4d2;
     }
     #site-nav a:hover {
-        color: #a1c5e2;
+        color: #c4daed;
     }
 }
