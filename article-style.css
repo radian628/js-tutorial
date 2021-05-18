@@ -206,6 +206,11 @@ tr:nth-child(even) {
 
 
 
+.site-settings {
+    position: fixed;
+    top: 5px;
+    left: 5px;
+}
 
 
 
@@ -286,85 +291,88 @@ tr:nth-child(even) {
         right: 0%;
         overflow-y: auto;
     }
+
+    body.dark #site-nav, body.dark #section-nav {
+        border: 5px solid #AAAAAA;
+    }
 }
 
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #111111;
-        color: #EEEEEE;
-    }
-    h1, h2, h3, h4, h5, h6 {
-        color: #ffffff;
-    }
+body.dark {
+    background-color: #111111;
+    color: #DDDDDD;
+    font-weight: 350;
+}
+body.dark h1, body.dark h2, body.dark h3, body.dark h4, body.dark h5, body.dark h6 {
+    color: #ffffff;
+}
 
-    .html-output {
-        background: #312938;
-    }
-    
-    .js-output {
-        background: #263324;
-    }
-    
-    samp {
-        background: #263324;
-    }
-    
-    pre, code {
-        background: #202931;
-    }
+body.dark .html-output {
+    background: #312938;
+}
 
-    kbd {
-        background: #222222;
-    }
-    
-    .spoiler > input {
-        background: #1c2229;
-    }
-    .spoiler > input:hover {
-        background: #374552;
-    }
-    .spoiler > input:checked {
-        background: #476583;
-    }
-    .spoiler {
-        background: #202931;
-    }
+body.dark .js-output {
+    background: #263324;
+}
 
-    .article a {
-        color: #a3caed;
-    }
-    .article a:visited {
-        color: #d1a6f0;
-    }
-    
-    tr:nth-child(even) {
-        background: #222222;
-    }
+body.dark samp {
+    background: #263324;
+}
 
+body.dark pre, body.dark code {
+    background: #202931;
+}
 
-    
+body.dark kbd {
+    background: #222222;
+}
 
-    #section-nav ul {
-        border-right-color: #6d85a9;
-    }
-    #section-nav a {
-        color: #c0d5f7;
-    }
-    #section-nav a:hover {
-        color: #d4c2ee;
-    }
-    .nav-highlighted {
-        color: rgb(255, 114, 114) !important;
-    }
+body.dark .spoiler > input {
+    background: #1c2229;
+}
+body.dark .spoiler > input:hover {
+    background: #374552;
+}
+body.dark .spoiler > input:checked {
+    background: #476583;
+}
+body.dark .spoiler {
+    background: #202931;
+}
+
+body.dark .article a {
+    color: #a3caed;
+}
+body.dark .article a:visited {
+    color: #d1a6f0;
+}
+
+body.dark tr:nth-child(even) {
+    background: #222222;
+}
 
 
-    #site-nav ul {
-        border-left-color:#57967c;
-    }
-    #site-nav a {
-        color: #bde4d2;
-    }
-    #site-nav a:hover {
-        color: #c4daed;
-    }
+
+
+body.dark #section-nav ul {
+    border-right-color: #6d85a9;
+}
+body.dark #section-nav a {
+    color: #c0d5f7;
+}
+body.dark #section-nav a:hover {
+    color: #d4c2ee;
+}
+body.dark .nav-highlighted {
+    color: rgb(255, 114, 114) !important;
+}
+
+
+body.dark #site-nav ul {
+    border-left-color:#57967c;
+}
+body.dark #site-nav a {
+    color: #bde4d2;
+}
+body.dark #site-nav a:hover {
+    color: #c4daed;
 }

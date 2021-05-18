@@ -76,6 +76,17 @@ async function addSiteNav() {
     });
 }
 
+function addSettings() {
+    let settings = document.createElement("div");
+    settings.className = "site-settings";
+    document.body.prepend(settings);
+
+    let darkModeButton = document.createElement("button");
+    darkModeButton.innerText = "Toggle Dark/Light Theme";
+    darkModeButton.onclick = toggleTheme;
+    settings.appendChild(darkModeButton);
+}
+
 function loop() {
     ys = getHeaderYPositions();
     let smallest = ys.reduce((previous, current) => Math.abs(previous.y) < Math.abs(current.y) ? previous : current, ys[0]);
@@ -86,6 +97,35 @@ function loop() {
     setTimeout(loop, 200);
 }
 
+function toggleTheme() {
+    let theme = localStorage.getItem("theme");
+    if (theme == "light") {
+        localStorage.setItem("theme", "dark");
+    } else {
+        localStorage.setItem("theme", "light");
+    }
+    updateTheme();
+}
+
+function updateTheme() {
+    let theme = localStorage.getItem("theme");
+    if (theme == "dark") {
+        document.body.className = "dark";
+    } else if (theme == null) {
+        if (matchMedia("(prefers-color-scheme: dark)").matches) {
+            localStorage.setItem("theme", "dark");
+        } else {
+            localStorage.setItem("theme", "light");
+        }
+        updateTheme();
+    } else {
+        document.body.className = "";
+    }
+}
+
 addSiteNav();
+addSettings();
+
+updateTheme();
 
 loop();
