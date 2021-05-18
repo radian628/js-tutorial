@@ -8,6 +8,10 @@ p, li, td {
     font-family: 'Helvetica', sans-serif;
 }
 
+p {
+    line-height: 1.35;
+}
+
 .html-output h1, .html-output h2, .html-output h3 {
     margin-top: 10px;
 }
@@ -70,11 +74,6 @@ kbd {
 th {
     padding-right: 20px;
 }
-
-.bold {
-    font-weight: bold;
-}
-
 tr:nth-child(even) {
     background: #f0f0f0;
 }
@@ -286,5 +285,86 @@ tr:nth-child(even) {
     #site-nav:hover {
         right: 0%;
         overflow-y: auto;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #111111;
+        color: white;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        color: #ffffff;
+    }
+
+    .html-output {
+        background: #312938;
+    }
+    
+    .js-output {
+        background: #263324;
+    }
+    
+    samp {
+        background: #263324;
+    }
+    
+    pre, code {
+        background: #202931;
+    }
+
+    kbd {
+        background: #222222;
+    }
+    
+    .spoiler > input {
+        background: #1c2229;
+    }
+    .spoiler > input:hover {
+        background: #374552;
+    }
+    .spoiler > input:checked {
+        background: #476583;
+    }
+    .spoiler {
+        background: #202931;
+    }
+
+    .article a {
+        color: #a3caed;
+    }
+    .article a:visited {
+        color: #d1a6f0;
+    }
+    
+    tr:nth-child(even) {
+        background: #222222;
+    }
+
+
+    
+
+    #section-nav ul {
+        border-right-color: #6d85a9;
+    }
+    #section-nav a {
+        color: #9ab8e9;
+    }
+    #section-nav a:hover {
+        color: #c6b1e6;
+    }
+    .nav-highlighted {
+        color: rgb(255, 114, 114) !important;
+    }
+
+
+    #site-nav ul {
+        border-left-color:#57967c;
+    }
+    #site-nav a {
+        color: #9bdabd;
+    }
+    #site-nav a:hover {
+        color: #a1c5e2;
     }
 }
