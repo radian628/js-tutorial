@@ -36,7 +36,7 @@ headers.forEach(header => {
     } else {
         let levels = lastLevel - level;
         for (let i = 0; levels > i; i++) {
-            currentParent = currentParent.parentElement;
+            currentParent = currentParent.parentElement.parentElement;
         }
     }
     let listItem = document.createElement("li");
