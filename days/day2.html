@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
     <head>
         <title>HTML/JS Day 2</title>
+        <meta charset="UTF-8">
+        <meta description="Day 2 of the course (introduction to JavaScript). Focuses on console.log, variables, math, booleans, if-statements, and functions.">
         <link rel="stylesheet" type="text/css" href="../article-style.css">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
     </head>
@@ -20,14 +22,13 @@
             <h2>Hello World with console.log</h2>
             <h3>"Hello World"</h3>
             <p>Open up <a href="https://jsfiddle.net">JSFiddle</a> (you now know where the JS is from!) and type the following into the <b>JavaScript</b> tab</p>
-            <pre>console.log("Hello World!");</pre>
+            <pre><code class="javascript">console.log("Hello World!");</code></pre>
             <p>Now find the console in the result tab. You might have to disable and re-enable the "Console in the editor" option to get it to display. The console should appear in the "Result" tab, and should contain the following text upon running the code:</p>
             <pre class="js-output">"Hello World!"</pre>
             <h3>Predict the Output</h3>
             <p><b>Without typing this into JSFiddle</b>, predict what will appear in the console with the following code. Then, confirm your prediction by typing it into JSFiddle.</p>
-            <pre>
-console.log("Hello World!");
-console.log("Goodbye World!"); </pre>
+            <pre><code class="javascript">console.log("Hello World!");
+console.log("Goodbye World!"); </code></pre>
             <h3>Predict the Code</h3>
             <p>Now do what's essentially the reverse. Write JavaScript code that produces the following output:</p>
             <pre class="js-output">
@@ -37,50 +38,44 @@ console.log("Goodbye World!"); </pre>
             <div class="spoiler">
                 <input type="checkbox">
                 <div>
-<pre class="noborder">
-console.log("Hello");
+<pre class="noborder"><code class="javascript">console.log("Hello");
 console.log("world!");
-</pre>
+</code></pre>
                 </div>
             </div>
             <h2>Variables</h2>
             <h3>Hello World Revisited</h3>
             <p>Let's change up our "Hello World" code a bit:</p>
-            <pre>
-let variable = "Hello World";
-console.log(variable);</pre>
+            <pre><code class="javascript">let variable = "Hello World";
+console.log(variable);</code></pre>
             <p>Type this into JSFiddle, and see what happens. It should output the same thing as the first "Hello World" program. What you've actually done here is create a <b>variable</b>. Let's analyze the first line:</p>
             <pre>
 let variable = "Hello World";</pre>
             <p>The <code>let</code> keyword creates, or declares a variable. The text after <code>let</code> is the name of the variable. In the example above, the variable's name is <code>variable</code>, though it could be any string of letters (no spaces though!). Next, we set it equal to the string <code>Hello World</code> with the <code>= "Hello World";</code> part. Remember, every line in JavaScript <i>should</i> end with a semicolon. It will still work without the semicolons, but this can lead to unexpected behavior.</p>
             <p>Now for the second line:</p>
-            <pre>
-console.log(variable);</pre>
+            <pre><code class="javascript">console.log(variable);</code></pre>
             <p>When you write the name of a variable somewhere, it represents the underlying value of the variable. That's why <code>console.log(variable);</code> prints <samp>"Hello World"</samp>, not <samp>variable</samp>. It's just like how in math, you could set a variable <var>x</var> equal to 5. Then, wherever you see <var>x</var>, you can treat it as if it's just the number 5. Speaking of numbers...</p>
             <h3>Numerical Variables</h3>
             <p>Variables can be numbers too!</p>
-            <pre>
-let x = 5;
-console.log(x);</pre>
+            <pre><code class="javascript">let x = 5;
+console.log(x);</code></pre>
             <p>As you might have expected, this will print the following to the console:</p>
             <pre class="js-output">5</pre>
             <h2>Math!</h2>
             <p>You can do math on both numbers and variables with numerical values. Consider the following example:</p>
-            <pre>
-let y = 7;
+            <pre><code class="javascript">let y = 7;
 y = y + 3;
-console.log(y);</pre>
+console.log(y);</code></pre>
             <p>Here's the output:</p>
             <pre class="js-output">10</pre>
             <p>Note that using single-letter variable names here is arbitrary. The type of data a variable represents has no influence on the name it can have. Another thing to note is that variables can be assigned and reassigned with the <code>=</code> operator (operators are just symbols that act on pieces of data). Remember to only use <code>let</code> when you define a variable <i>for the first time</i>. You can omit it for all subsequent reassignments of the variable.</p>
             <h3>More Math</h3>
             <p>Here's another one of those "predict the output" games. Guess what the program will output to the console (hint: <code>*</code> is multiplication):</p>
-            <pre>
-let foo = 5;
+            <pre><code class="javascript">let foo = 5;
 let bar = 8;
 let baz = foo * bar + 2;
 console.log(baz);
-            </pre>
+            </code></pre>
             <p>Once you've made your guess, type the code into JSFiddle and see if the output matches what you guessed.</p>
             <h3>Math Operators</h3>
             <p>Here is a list of some common math operators:</p>
@@ -124,15 +119,14 @@ console.log(baz);
             </table>
             <h3>Order of Operations (PEMDAS)</h3>
             <p>PEMDAS applies in JavaScript. In other words, statements within parentheses execute first. Without parentheses, multiplication and division happen before addition and subtraction. The following code outputs <samp>14</samp>.</p>
-            <pre>console.log(10 + 8 / 2);</pre>
+            <pre><code class="javascript">console.log(10 + 8 / 2);</code></pre>
             <p>Conversely, this code outputs <samp>9</samp>.</p>
-            <pre>console.log((10 + 8) / 2);</pre>
+            <pre><code class="javascript">console.log((10 + 8) / 2);</code></pre>
             <h2>Booleans</h2>
             <h3>What are Booleans?</h3>
             <p>Booleans are another data type in JavaScript (a <b>data type</b> is a distinct form that data (i.e. variables) can take). Booleans can only take one of two values: <code>true</code> or <code>false</code>.</p>
-            <pre>
-let boolean = true;
-let anotherBoolean = false;</pre>
+            <pre><code class="javascript">let boolean = true;
+let anotherBoolean = false;</code></pre>
             <h3>Booleans from Comparison Operators</h3>
             <p>Comparison operators are operators that- as you might expect- compare the size of two numbers. They output booleans- <code>true</code> if the comparison is accurate, and <code>false</code> if it is not. As an example, <code>6 &gt; 2</code> is <code>true</code> (because six is, in fact, greater than two), whereas <code>5 &lt; 4</code> is <code>false</code> (because five is not less than four).</p>
             <h3>Comparison Operator Table</h3>
@@ -198,63 +192,58 @@ let anotherBoolean = false;</pre>
             <p>Warning: <b>Do not confuse <code>==</code> (equals) with <code>=</code> (assignment).</b> The former tests whether two things are equal (outputting <code>true</code> if they are, and <code>false</code> otherwise), while the latter sets the variable on the left to the value on the right.</p>
             <h2>If-Statements</h2>
             <p>If-statements allow you to run code conditionally- in other words, they only run the code within them <b>if</b> a given boolean is <code>true</code>. For example, the code below only prints <samp>"x is greater than 7!"</samp> if the variable <code>x</code> is greater than 7.</p>
-            <pre>
-let x = 10;
+            <pre><code class="javascript">let x = 10;
 if (x > 7) {
     console.log("x is greater than 7!");
 }
 x = 5;
 if (x > 7) {
     console.log("x is greater than 7!");
-}</pre>
+}</code></pre>
             <p>The way the code is currently structured, how many times will it output <samp>"x is greater than 7!"</samp>? Which if-statement(s) will run?</p>
             <p>Answer:</p>
             <div class="spoiler">
                 <input type="checkbox">
-                <p>Once. Only the first if-statement will run.
+                <p>Once. Only the first if-statement will execute the code between its curly braces.
                 </p>
             </div>
             <h3>Else</h3>
             <p>Take the following example:</p>
-            <pre>
-let chanceOfRain = 0.75;
+            <pre><code class="javascript">let chanceOfRain = 0.75;
 if (chanceOfRain &gt; 0.5) {
     console.log("It is likely to rain.");
 }
 if (chanceOfRain &lt;= 0.5) {
     console.log("It is unlikely to rain.");
-}</pre>
+}</code></pre>
             <p>You may quickly realize that the second if-statement will only run if the first one doesn't. After all, the first one uses a "greater than" condition, whereas the second uses a "less than or equal to" condition- both with the same operands (operands is a term for what operators operate on)! The <code>else</code> keyword can simplify this code- it lets you provide a block of code that will only run if the preceding if-statement does not.</p>
             <p>The following example functions identically to the previous one, but uses an <code>else</code> block instead of another if-statement. To use <code>else</code>, first type the word <code>else</code>, followed by curly brackets, in which you'll put your code. Unlike the if-statement, you don't need parentheses.</p>
-            <pre>
-let chanceOfRain = 0.75;
+            <pre><code class="javascript">let chanceOfRain = 0.75;
 if (chanceOfRain &gt; 0.5) {
     console.log("It is likely to rain.");
 } else {
     console.log("It is unlikely to rain.");
-}</pre>
+}</code></pre>
             <p>Side note: Changing the structure of code while keeping the same functionality (which is what we did here) is called <b>refactoring</b>.</p>
             <h3>Else If</h3>
             <p>Multiple if-statements can be chained together using <code>else if</code>. <code>else if</code> functions identically to <code>else</code>, except the code after the <code>else if</code> only runs if the supplied condition is true. Multiple <code>else if</code>s can even be chained together, each one only executing if all the previous ones have not.</p> 
             <p>To use <code>else if</code>, just type <code>else</code> followed by an if-statement just like you'd write it on your own.</p>
             <p>Consider the following example, which does exactly what you might expect:</p>
-            <pre>
-let chanceOfRain = 0.2;
+            <pre><code class="javascript">let chanceOfRain = 0.2;
 if (chanceOfRain &gt; 0.8) {
     console.log("It is likely to rain.");
 } else if (chanceOfRain &gt; 0.3) {
     console.log("It is somewhat likely to rain.");
 } else {
     console.log("It is unlikely to rain.");
-}</pre>
+}</code></pre>
             <p>Given the above code, what is the likelihood of rain? Check your answer by typing the example into JSFiddle.</p>
             <h3>Another Example of Else-if</h3>
             <p>Edit the previous example so that it prints <samp>"It's definitely not going to rain!"</samp> if the chance of rain is exactly 0. Test your code with different values for <code>chanceOfRain</code> to see if it works! Note that your solution might look different but still work. There are multiple solutions to essentially every non-trivial problem in JavaScript!</p>
             <p>Possible solution:</p>
             <div class="spoiler">
                 <input type="checkbox">
-                <pre>
-let chanceOfRain = 0.2;
+                <pre><code class="javascript">let chanceOfRain = 0.2;
 if (chanceOfRain &gt; 0.8) {
     console.log("It is likely to rain.");
 } else if (chanceOfRain &gt; 0.3) {
@@ -263,17 +252,15 @@ if (chanceOfRain &gt; 0.8) {
     console.log("It is unlikely to rain.");
 } else {
     console.log("It's definitely not going to rain!");
-}</pre>
+}</code></pre>
             </div>
             <h2>Functions</h2>
             <p>Let's say we have to check the chance of rain three different times, using the previous code we wrote. Let's represent the three chances we're interested in using variables:</p>
-            <pre>
-let chanceOfRain1 = 0;
+            <pre><code class="javascript">let chanceOfRain1 = 0;
 let chanceOfRain2 = 0.5;
-let chanceOfRain3 = 0.9;</pre>
+let chanceOfRain3 = 0.9;</code></pre>
             <p>We could, of course, do it like this:</p>
-            <pre>
-let chanceOfRain1 = 0;
+            <pre><code class="javascript">let chanceOfRain1 = 0;
 let chanceOfRain2 = 0.5;
 let chanceOfRain3 = 0.9;
 
@@ -305,19 +292,17 @@ if (chanceOfRain3 &gt; 0.8) {
     console.log("It is unlikely to rain.");
 } else {
     console.log("It's definitely not going to rain!");
-}</pre>
+}</code></pre>
             <p>However, as you can probably see, this is horribly repetitive. Imagine if you wanted to add a condition that says <samp>"It will certaintly rain!"</samp> if the chance of rain is 1? You'd have to do that three times!</p>
             <p>Because of this (along with their general laziness), programmers <i>hate</i> needless repetition, and thus, they've developed tools to combat it. In fact, if any of your code is extremely repetitive, you should seek out a better way, because a disgruntled programmer has likely already thought of one, and added it to the language.</p>
             <p>Often the best way of eliminating repetition is using <b>functions</b>. A function is simply a named block of code that you can run as many times as you want. They are created with the keyword <code>function</code>, followed by the function name (which works the same as a variable name), after which you put parentheses, and finally curly brackets in which you put your code. Here's a function that simply writes <samp>"Hello World!"</samp> to the console:</p>
-            <pre>
-function helloWorld() {
+            <pre><code class="javascript">function helloWorld() {
     console.log("Hello World!");
-}</pre>
+}</code></pre>
             <p>Between the parentheses, you can optionally put a list of <b>function arguments</b>. These are just a bunch of pieces of data that you "pass" or "plug" into the function, influencing its behavior. In math class, if you've seen something like <var>f(x)</var>, the function argument is basically the <var>x</var>.</p>
             <p>To actually run the function, type the name of the function, followed by a set of parentheses. Between the parentheses, put the values you want the arguments to take. Even if there are no arguments, you should still include the parentheses! In JavaScript, <b>functions are just another type of data</b> (you'll hear me repeat this a lot), so just writing the function name merely refers to the function itself!</p>
             <p>Here's the previous example, refactored to use a function:</p>
-            <pre>
-function describeChanceOfRain(chanceOfRain) {
+            <pre><code class="javascript">function describeChanceOfRain(chanceOfRain) {
     if (chanceOfRain &gt; 0.8) {
         console.log("It is likely to rain.");
     } else if (chanceOfRain &gt; 0.3) {
@@ -335,7 +320,7 @@ let chanceOfRain3 = 0.9;
 
 describeChanceOfRain(chanceOfRain1);
 describeChanceOfRain(chanceOfRain2);
-describeChanceOfRain(chanceOfRain3);</pre>
+describeChanceOfRain(chanceOfRain3);</code></pre>
             <p>Props to you if you figured this out already, but our good old friend <code>console.log</code> is a function too!</p>
             <h2>FizzBuzz</h2>
             <p>Here's an assignment to test your skills: Create a function <code>fizzBuzz(x)</code> that abides by the following rules:</p>
@@ -385,13 +370,12 @@ describeChanceOfRain(chanceOfRain3);</pre>
                 <input type="checkbox">
                 <div>
                     
-                <pre>
-function helloWorlds(n) {
+                <pre><code class="javascript">function helloWorlds(n) {
     if (n > 0) {
         console.log("Hello World!");
         helloWorlds(n - 1);
     }
-}</pre>
+}</code></pre>
                     <p>The phenomenon of a function calling itself is called <b>recursion</b>. A function that does recursion is called a <b>recursive function</b>.</p>
                 </div>
             </div>
@@ -401,6 +385,7 @@ function helloWorlds(n) {
         <ul id="site-nav" data-root-dir="..">
 
         </ul>
+        <script src="../highlight.pack.js"></script>
         <script src="../make-nav.js"></script>
     </body>
 </html>

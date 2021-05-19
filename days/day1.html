@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
     <head>
         <title>HTML/JS Day 1</title>
+        <meta charset="UTF-8">
+        <meta description="Day 1 of the course. Focuses on HTML.">
         <link rel="stylesheet" type="text/css" href="../article-style.css">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
     </head>
@@ -47,12 +49,11 @@
             <h2>Intro to HTML</h2>
             <h3>HTML Tags</h3>
             <p>This is an HTML tag. It's the base unit of all HTML:</p>
-            <pre>&lt;tagname&gt;&lt;/tagname&gt;</pre>
+            <pre><code class="html">&lt;tagname&gt;&lt;/tagname&gt;</code></pre>
             <p>That first half, <code>&lt;tagname&gt;</code>, between the first set of angle brackets, is called the <b>opening tag</b>. The second half, <code>&lt;/tagname&gt;</code>, between the second set of angle brackets, is called the <b>closing tag</b>. Note that the closing tag has a slash immediately after the first angle bracket. Anything between the opening and closing tag is said to be <i>inside</i> the tag. The text labeled <code>tagname</code> is said to be the name or type of the tag.</p>
             <h3>The HTML Template</h3>
             <p>Below is the starting template for virtually every web page in existence. It isn't strictly required, but you should still use it:</p>
-            <pre>
-&lt;!DOCTYPE html&gt;
+            <pre><code class="html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;head&gt;
     
@@ -60,7 +61,7 @@
     &lt;body&gt;
     
     &lt;/body&gt;
-&lt;/html&gt;</pre>
+&lt;/html&gt;</code></pre>
             <p>Let's break this down:</p>
             <p><code>&lt;!DOCTYPE html&gt;</code> - This tells the browser (and anything else reading the HTML file) that what you're looking at is, in fact, HTML. It's not exactly a "true" HTML tag.</p>
             <p><code>&lt;html&gt;</code> - All HTML goes in the <code>html</code> tag.</p>
@@ -68,8 +69,7 @@
             <p><code>&lt;body&gt;&lt;/body&gt;</code> - The <code>body</code> tag contains all the HTML on the web page that you can directly see.</p>
             <h3>Adding Content</h3>
             <p>Let's look at an example of some HTML that actually does something:</p>
-            <pre>
-&lt;!DOCTYPE html&gt;
+            <pre><code class="html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;head&gt;
     
@@ -77,15 +77,14 @@
     &lt;body&gt;
         &lt;p&gt;Hello World!&lt;/p&gt;
     &lt;/body&gt;
-&lt;/html&gt;</pre>
+&lt;/html&gt;</code></pre>
             <p>The only real difference between this HTML and the template is the inclusion of the line <code>&lt;p&gt;Hello World!&lt;/p&gt;</code>, which represents a paragraph of text, where that text is "Hello World". Try typing out this example in JSFiddle. Once you run it, the result should resemble this (without the background, of course- that's just to differentiate the output from the rest of the page):</p>
             <div class="html-output">
                 <p>Hello World!</p>
             </div>
             <h3>Another Example</h3>
             <p>Here is an example with more tags:</p>
-            <pre>
-&lt;!DOCTYPE html&gt;
+            <pre><code class="html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;head&gt;
     
@@ -95,7 +94,7 @@
         &lt;p&gt;I am a paragraph!&lt;/p&gt;
         &lt;button&gt;I am a button!&lt;/button&gt;
     &lt;/body&gt;
-&lt;/html&gt;</pre>
+&lt;/html&gt;</code></pre>
             <p>Its output:</p>
             <div class="html-output">
                 <h1 class="no-nav">I am a header!</h1>
@@ -105,8 +104,7 @@
             <p>As you may have guessed, the <code>h1</code> tag defines a header, and the <code>button</code> tag defines a button.</p>
             <h3>Some more tags</h3>
             <p>Here's an even more complex example:</p>
-            <pre>
-&lt;!DOCTYPE html&gt;
+            <pre><code class="html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;head&gt;
     
@@ -118,7 +116,7 @@
         &lt;button&gt;I am a button!&lt;/button&gt;
         &lt;input value="I am a text input!"&gt;
     &lt;/body&gt;
-&lt;/html&gt;</pre>
+&lt;/html&gt;</code></pre>
             <p>One odd thing you might immediately notice is that the <code>input</code> tag has no closing tag! This is no mistake- the input tag is supposed to work this way. You'll also notice that the opening tag has another unusual part- this <code>value="I am a text input!"</code> thing. This is an <b>HTML attribute</b>, a piece of data that modifies an HTML element. In this case, we're setting the <code>value</code> attribute to <code>I am a text input!</code> (remember to include quotes). For input elements, the <code>value</code> attribute represents the starting value within the input.</p>
             <p>Output:</p>
             <div class="html-output">
@@ -139,8 +137,7 @@
             <div class="spoiler">
                 <input type="checkbox">
                 <div>
-<pre class="noborder">
-&lt;!DOCTYPE html&gt;
+<pre> <code class="html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;head&gt;
     
@@ -150,7 +147,7 @@
         &lt;p&gt;text text &lt;strong&gt;text&lt;/strong&gt; text text&lt;/p&gt;
         &lt;button&gt;Click Me!&lt;/button&gt;
     &lt;/body&gt;
-&lt;/html&gt;</pre>
+&lt;/html&gt;</code></pre>
                 </div>
             </div>
 
@@ -164,8 +161,7 @@
             <div class="spoiler">
                 <input type="checkbox">
                 <div>
-<pre class="noborder">
-&lt;!DOCTYPE html&gt;
+<pre class="noborder"><code class="html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;head&gt;
     
@@ -173,7 +169,7 @@
     &lt;body&gt;
         &lt;p&gt;You can access Google Search by clicking &lt;a href=&quot;https://google.com&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
     &lt;/body&gt;
-&lt;/html&gt;</pre>
+&lt;/html&gt;</code></pre>
                 </div>
             </div>                
             <p>Looking things up is probably the most important skill you can learn when programming, because, after a certain point, helping yourself will become far more efficient than getting help from someone else. After all, in many cases, you're the only one who knows how your code works!</p>
@@ -184,6 +180,7 @@
         <ul id="site-nav" data-root-dir="..">
 
         </ul>
+        <script src="../highlight.pack.js"></script>
         <script src="../make-nav.js"></script>
     </body>
 </html>

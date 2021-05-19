@@ -21,22 +21,28 @@ body {
     --site-nav-indent-color: #ace6ce;
 
     --header-color: #1f3c68;
-}
+    --bg-color: white;
+    --text-color: black;
+    /*
 
+    Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 
-body.dark button {
-    background: #333333;
-    color: white;
-}
-body.dark :not(.spoiler) > input {
-    background: black;
-    color: white;
-}
-body.dark .article a {
-    color: #a3caed;
-}
-body.dark .article a:visited {
-    color: #d1a6f0;
+    */
+    --hljs-bg: #F0F0F0;
+    --hljs-subst: #444;
+    --hljs-comment: #888888;
+    --hljs-type-string: #880000;
+    --hljs-variable: #BC6060;
+    --hljs-literal: #78A960;
+    --hljs-builtin: #397300;
+    --hljs-meta: #1f7199;
+    --hljs-meta-string: #4d99bf;
+    /*
+
+    End of original highlight.js style.
+
+    */
+    --example-label-color: #00000022;
 }
 body.dark {
     --html-out-bg: #261a31;
@@ -62,12 +68,156 @@ body.dark {
 
     --header-color: #ffffff;
 
-    background: #121212;
-    color: #DDDDDD;
+    --bg-color: #121212;
+    --text-color: #DDDDDD;
+
+    /*
+
+    Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+
+    */
+    --hljs-bg: #444;
+    --hljs-subst: #DDD;
+    --hljs-comment: #777;
+    --hljs-type-string: #d88;
+    --hljs-variable: #d88;
+    --hljs-literal: white;
+    --hljs-builtin: #d88;
+    --hljs-meta: #777;
+    --hljs-meta-string: #b26640;
+    /*
+
+    End of dark highlight.js style.
+
+    */
+
+    --example-label-color: #FFFFFF22;
+}
+
+body.dark button {
+    background: #333333;
+    color: white;
+}
+body.dark :not(.spoiler) > input {
+    background: black;
+    color: white;
+}
+body.dark .article a {
+    color: #a3caed;
+}
+body.dark .article a:visited {
+    color: #d1a6f0;
 }
 
 
 
+
+.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    background: var(--hljs-bg);
+}
+.hljs,
+.hljs-subst {
+    color: var(--hljs-subst);
+}
+.hljs-comment {
+    color: var(--hljs-comment);
+}
+.hljs-keyword,
+.hljs-attribute,
+.hljs-selector-tag,
+.hljs-meta-keyword,
+.hljs-doctag,
+.hljs-name {
+    font-weight: bold;
+}
+.hljs-type,
+.hljs-string,
+.hljs-number,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-quote,
+.hljs-template-tag,
+.hljs-deletion {
+    color: var(--hljs-type-string);
+}
+.hljs-title,
+.hljs-section {
+    color: var(--hljs-type-string);
+    font-weight: bold;
+}
+.hljs-regexp,
+.hljs-symbol,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-link,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+    color: var(--hljs-variable);
+}
+.hljs-literal {
+    color: var(--hljs-literal);
+}
+.hljs-built_in,
+.hljs-bullet,
+.hljs-code,
+.hljs-addition {
+    color: var(--hljs-builtin);
+}
+.hljs-meta {
+    color: var(--hljs-meta);
+}
+.hljs-meta-string {
+    color: var(--hljs-meta-string);
+}
+.hljs-emphasis {
+    font-style: italic;
+}
+.hljs-strong {
+    font-weight: bold;
+}  
+
+
+
+body {
+    color: var(--text-color);
+    background: var(--bg-color);
+}
+
+.html::before, .javascript::before, .html-output::before, .js-output::before {
+    white-space: normal;
+    display: block;
+    background: var(--example-label-color);
+    color: var(--text-color);
+    border-radius: 10px;
+    padding: 3px;
+    padding-left: 7px;
+    margin: -6px;
+    margin-bottom: 0.5em;
+    font-family: 'Helvetica', sans-serif;
+    font-size: 0.75em;
+    z-index: 1;
+}
+
+.html-output::before, .js-output::before {
+    margin: -10px;
+    margin-bottom: 0.5em;
+}
+
+.html::before {
+    content: "HTML\A";
+}
+.javascript::before {
+    content: "JavaScript\A";
+}
+.html-output::before {
+    content: "HTML Output\A";
+}
+.js-output::before {
+    content: "JavaScript Console Output\A";
+}
 
 h1, h2, h3, h4 {
     font-family: 'Helvetica', sans-serif;
@@ -120,12 +270,9 @@ samp {
 pre, code {
     background: var(--code-bg);
     border-radius: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
 }
 
 pre {
-    padding: 10px;
     word-wrap: break-word;
     overflow: auto;
 }
@@ -367,3 +514,4 @@ tr:nth-child(even) {
         border: 5px solid #AAAAAA;
     }
 }
+

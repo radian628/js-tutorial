@@ -1,3 +1,11 @@
+// Array.from(document.querySelectorAll("pre")).forEach(elem => {
+
+// });
+
+setTimeout(() => {
+    hljs.highlightAll();
+});
+
 let nav = document.getElementById("section-nav");
 
 let headers = Array.from(document.querySelectorAll("h1:not(.no-nav), h2:not(.no-nav), h3:not(.no-nav), h4:not(.no-nav), h5:not(.no-nav), h6:not(.no-nav)"));
