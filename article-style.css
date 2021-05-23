@@ -436,6 +436,7 @@ tr:nth-child(even) {
 @media (max-width: 62em) {
     .article {
         margin: 10px 5%;
+        line-height: 1.7;
     }
 
 

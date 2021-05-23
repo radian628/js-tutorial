@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>HTML/JS Quick Reference</title>
+        <meta charset="UTF-8">
+        <meta description="A compact reference for introductory HTML and JavaScript concepts.">
+        <link rel="stylesheet" type="text/css" href="./article-style.css">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    </head>
+    <body>
+        <ul id="section-nav">
+            
+        </ul>
+        <div class="article">
+            <h1>Table of Contents</h1>
+        </div>
+        <ul id="site-nav" data-root-dir=".">
+
+        </ul>
+        <script src="./make-nav.js"></script>
+        <script>
+            let siteNav = document.getElementById("site-nav").cloneNode(true);
+            siteNav.id = null;
+            document.getElementsByClassName("article")[0].appendChild(siteNav);
+        </script>
+    </body>
+</html>

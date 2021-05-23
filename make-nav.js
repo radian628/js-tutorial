@@ -3,7 +3,7 @@
 // });
 
 setTimeout(() => {
-    hljs.highlightAll();
+    if (window.hljs) hljs.highlightAll();
 });
 
 let nav = document.getElementById("section-nav");
@@ -58,6 +58,7 @@ headers.forEach(header => {
 
 async function addSiteNav() {
     let siteNavContent = `<li><a data-href="/index.html">Home</a></li>
+    <li><a data-href="/table-of-contents.html">Table of Contents</a></li>
     <li>Days
         <ul>
             <li><a data-href="/days/day1.html">Day 1 - HTML</a></li>
