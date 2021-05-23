@@ -379,6 +379,7 @@ tr:nth-child(even) {
 
 
 
+
 #site-nav {
     font-family: Helvetica, sans-serif;
     position: fixed;
@@ -445,7 +446,7 @@ tr:nth-child(even) {
         bottom: -24px;
         width: 50%;
         background: #000000BB;
-        left: -49%;
+        left: -42%;
         transition: left 0.3s;
         border-radius: 20px;
         padding-top: 10px;
@@ -484,7 +485,7 @@ tr:nth-child(even) {
         bottom: -24px;
         width: 50%;
         background: #000000BB;
-        right: calc(-49% - 30px);
+        right: calc(-42% - 30px);
         transition: right 0.3s;
         border-radius: 20px;
         padding-top: 10px;
@@ -509,9 +510,10 @@ tr:nth-child(even) {
         right: 0%;
         overflow-y: auto;
     }
-
     body.dark #site-nav, body.dark #section-nav {
         border: 5px solid #AAAAAA;
     }
+
+    
 }
 
