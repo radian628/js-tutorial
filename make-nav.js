@@ -94,6 +94,13 @@ function addSettings() {
     darkModeButton.innerText = "Toggle Dark/Light Theme";
     darkModeButton.onclick = toggleTheme;
     settings.appendChild(darkModeButton);
+
+    settings.appendChild(document.createElement("br"));
+
+    let tableOfContentsLink = document.createElement("a");
+    tableOfContentsLink.innerText = "Table of Contents";
+    tableOfContentsLink.href = document.getElementById("site-nav").dataset.rootDir + "/table-of-contents.html";
+    settings.appendChild(tableOfContentsLink);
 }
 
 function loop() {
