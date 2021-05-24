@@ -478,8 +478,12 @@ body.dark .site-settings {
         color: #bb96f3;
     }
     #section-nav:hover {
+        opacity: 0.5;
+    }
+    #section-nav.hover {
         left: 0%;
         overflow-y: auto;
+        opacity: 1;
     }
     .nav-highlighted {
         color: rgb(255, 131, 131) !important;
@@ -517,13 +521,20 @@ body.dark .site-settings {
         color: #acc5e6;
     }
     #site-nav:hover {
+        opacity: 0.5;
+    }
+    #site-nav.hover {
         right: 0%;
         overflow-y: auto;
+        opacity: 1;
     }
     body.dark #site-nav, body.dark #section-nav {
         border: 5px solid #AAAAAA;
     }
 
-    
+    .site-settings {
+        position: static;
+        background: none;
+    }
 }
 

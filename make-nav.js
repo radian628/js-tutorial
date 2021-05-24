@@ -7,6 +7,42 @@ setTimeout(() => {
 });
 
 let nav = document.getElementById("section-nav");
+let siteNav = document.getElementById("site-nav");
+
+[nav, siteNav].forEach(elem => {
+    let prevTouch;
+    let prevTime = Date.now();
+    elem.addEventListener("touchmove", e => {
+        if (e.touches.length == 1) {
+            let touch = e.touches[0];
+            let time = Date.now();
+
+            if (prevTouch) {
+                let deltaX = (touch.clientX - prevTouch.clientX) / (time - prevTime) * 1000;
+                let threshold = window.innerWidth / 2;
+                if (elem === nav) {
+                    if (deltaX > threshold) {
+                        elem.className = "hover";
+                    }
+                    if (deltaX < threshold) {
+                        elem.className = "";
+                    }
+                } else {
+                    if (deltaX > threshold) {
+                        elem.className = "";
+                    }
+                    if (deltaX < threshold) {
+                        elem.className = "hover";
+                    }
+                }
+            }
+
+
+            prevTime = time;
+            prevTouch = e.touches[0];
+        }
+    }, { passive: true });
+})
 
 let headers = Array.from(document.querySelectorAll("h1:not(.no-nav), h2:not(.no-nav), h3:not(.no-nav), h4:not(.no-nav), h5:not(.no-nav), h6:not(.no-nav)"));
 
@@ -75,7 +111,6 @@ async function addSiteNav() {
     </li>
     <li><a data-href="/quick-reference.html">Quick Reference (by day)</a></li>
     `; 
-    let siteNav = document.getElementById("site-nav");
     siteNav.innerHTML = siteNavContent;
     siteNav.id = "site-nav";
     let rootDir = siteNav.dataset.rootDir;
