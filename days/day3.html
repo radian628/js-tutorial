@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>HTML/JS Day 2</title>
+        <meta charset="UTF-8">
+        <meta description="Day 3 of the course. Focuses on the DRY principle, logical operators, objects, document.getElementById, and listeners.">
+        <link rel="stylesheet" type="text/css" href="../article-style.css">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    </head>
+    <body>
+        <ul id="section-nav">
+            
+        </ul>
+        <div class="article">
+            <h1>Day 3</h1>
+            <h2>DRY</h2>
+            <p>There is a principle in programming that you will hear me frequently allude to and praise to no end. That is the principle of "Don't Repeat Yourself" (DRY for short), the idea that code should be free of pointless repetition.</p>
+            <p>Writing DRY code is important because doing so drastically aids in maintainability. For example, let's say you have several places where you want apply a complex formula to a number. You type out the formula each time. But then the formula turns out to have a mistake in it, and you have to go and change every single copy you just made to fix it. If you had made this formula a function, you'd only have to fix the mistake once, inside of the function body.</p>
+            <h2>Logical Operators</h2>
+            <h3>Checking Multiple Conditions</h3>
+            <p>Consider the following situation: A roller coaster requires its passengers to be at least 120 centimeters tall, 40 kilograms in weight, and 10 years old. You make a function to check whether someone can ride the roller coaster with a given height, weight, and age. You could do it like this...</p>
+            <pre><code class="javascript">
+function canRideRollerCoaster(height, weight, age) {
+    if (height >= 120) {
+        if (weight >= 40) {
+            if (age >= 10) {
+                console.log("You can ride the roller coaster!");
+            } else {
+                console.log("You can't ride the roller coaster!");
+            }
+        } else {
+            console.log("You can't ride the roller coaster!");
+        }
+    } else {
+        console.log("You can't ride the roller coaster!");
+    }
+}
+            </code></pre>
+            <h3>Using Logical Operators</h3>
+            <p>However, anyone who adheres to the DRY principle will recoil in disgust upon seeing the sheer amount of repetition in the above code. Look at how the <code>"You can't ride the roller coaster!"</code> is pointlessly repeated <i>three</i> times!</p>
+            <p>Of course, we are at the mercy of the syntax of if-statements here. Multiple if-statements can't share the same <code>else</code> block. If only there was a way to combine all of these if-statements into a single one, checking to see whether all of the conditions are true?...</p>
+            <p>Oh wait, there is. This is a job for the logical operators, which essentially combine or manipulate booleans. They can express whether <i>all</i> conditions are true, whether <i>any</i> conditions are true, or can negate a condition. The operator we need here is the <code>&&</code> operator, which only evaluates to <code>true</code> if both of its operands are true. Here's how it works:</p>
+            <table>
+                <tr>
+                    <th>Expression</th>
+                    <th>Result</th>
+                </tr>
+                <tr>
+                    <td><code>true && true</code></td>
+                    <td><code>true</code></td>
+                </tr>
+                <tr>
+                    <td><code>true && false</code></td>
+                    <td><code>false</code></td>
+                </tr>
+                <tr>
+                    <td><code>false && true</code></td>
+                    <td><code>false</code></td>
+                </tr>
+                <tr>
+                    <td><code>false && false</code></td>
+                    <td><code>false</code></td>
+                </tr>
+            </table>
+            <p>And here's how we could use it to fix the following example. Before you reveal it, try and implement the improved version yourself:</p>
+
+            <div class="spoiler">
+                <input type="checkbox">
+                <pre><code class="javascript">
+    function canRideRollerCoaster(height, weight, age) {
+        if (height >= 120 && weight >= 40 && age >= 10) {
+            console.log("You can ride the roller coaster!");
+        } else {
+            console.log("You can't ride the roller coaster!");
+        }
+    }
+                </code></pre>
+
+            </div>
+            <h3>&&, ||, and !</h3>
+            <p>Another logical operator, <code>||</code>, returns <code>true</code> provided that <i>any</i> of its operands are true. A third one, <code>!</code>, simply switches the following boolean from <code>true</code> to <code>false</code>, or vice-versa. This table demonstrates how they work:</p>
+            <table>
+                <tr>
+                    <th>Expression</th>
+                    <th>Result</th>
+                    <th>Expression</th>
+                    <th>Result</th>
+                    <th>Expression</th>
+                    <th>Result</th>
+                </tr>
+                <tr>
+                    <td><code>true && true</code></td>
+                    <td><code>true</code></td>
+                    <td><code>true || true</code></td>
+                    <td><code>true</code></td>
+                    <td><code>!true</code></td>
+                    <td><code>false</code></td>
+                </tr>
+                <tr>
+                    <td><code>true && false</code></td>
+                    <td><code>false</code></td>
+                    <td><code>true || false</code></td>
+                    <td><code>true</code></td>
+                    <td><code>!false</code></td>
+                    <td><code>true</code></td>
+                </tr>
+                <tr>
+                    <td><code>false && true</code></td>
+                    <td><code>false</code></td>
+                    <td><code>false || true</code></td>
+                    <td><code>true</code></td>
+                </tr>
+                <tr>
+                    <td><code>false && false</code></td>
+                    <td><code>false</code></td>
+                    <td><code>false || false</code></td>
+                    <td><code>false</code></td>
+                </tr>
+            </table>
+            <p>The <code>&&</code> operator is also called "AND"; <code>||</code> is called "OR"; and <code>!</code> is called "NOT".</p>
+            <h2>Objects</h2>
+            <h3>What are Objects?</h3>
+            <p>The idea of an <i>object</i> may just be the most important concept in JavaScript. Objects are- put simply- a bunch of variables "within" another variable. They are made up of a list of <b>keys</b>, strings that act as labels; and <b>values</b>, pieces of data attached to the keys. A key and its corresponding value together is called an <b>entry</b>, a <b>property</b>, or a <b>key-value pair</b>. Yes, all these names do, in fact, refer to the same thing.</p>
+            <h3>Creating Objects</h3>
+            <p>Consider the following data, which describe a product at a grocery store- potato chips- of which the store has 123 bags- that sell for $1.25:</p>
+            <table>
+                <tr>
+                    <th>Key</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>Potato Chips</td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td>1.25</td>
+                </tr>
+                <tr>
+                    <td>Quantity In Stock</td>
+                    <td>123</td>
+                </tr>
+            </table>
+            <p>As you can see, these data form a "key-value" relationship (and yes, "data" is plural). They can be turned into a JavaScript object like so:</p>
+            <pre><code class="javascript">
+let product = {
+    name: "Potato Chips",
+    price: 1.25,
+    quantityInStock: 123
+};
+            </code></pre>
+            <p>As you can see, objects are assigned to variables using <code>let</code>, just like many of the other data types. They are surrounded by curly brackets. Between the curly brackets, entries are separated with commas, and keys are separated from their values with colons.</p>
+            <p>Be aware of the naming conventions of keys. Keys generally have no spaces in their names. Every word but the first should be capitalized. This also applies to JavaScript functions and variables.</p>
+            <h3>Accessing Properties</h3>
+            <p>The value of an object's property can be accessed by typing in the name of the object, followed by a <code>.</code> (period), and then the name of that property's key. For instance, <code>product.name</code> is <samp>"Potato Chips"</samp>.</p>
+            <p>You can also change and add properties to an object. Let's say the store wants to open a new branch in the UK, where they call chips "crisps". We could use the following line of code to update the name.</p>
+            <pre><code class="javascript">
+product.name = "Potato Crisps";
+            </code></pre>
+            <p>We can also add new properties by simply setting a property that doesn't exist yet. Let's say the store wants to indicate that the chips are on sale. They could do that as follows:</p>
+            <pre><code class="javascript">
+product.onSale = true;
+            </code></pre>
+            <p>The <code>onSale</code> property never existed before, but it does now!</p>
+            <h3>What is console.log?</h3>
+            <p>All that being said, what is <code>console</code>? What is <code>log</code>? And what is <code>console.log</code>?</p>
+            <div class="spoiler">
+                <input type="checkbox">
+                <div>
+                    <ul>
+                        <li><code>console</code> is an object.</li>
+                        <li><code>log</code> is the name of one of <code>console</code>'s keys.</li>
+                        <li><code>console.log</code> represents the value that corresponds to the <code>log</code> key. It might seem odd that this value is a function, but remember, functions are data!</li>
+                    </ul>
+                </div>
+            </div>
+            <h2>Return Values</h2>
+            <p>Many functions do more than just execute code- they can also "return" a value. This is where a call to a function acts like a piece of data. Return values are most frequently used to show what a function outputs. A function can return a value by putting the keyword <code>return</code> before that value. Note that the <code>return</code> keyword also prematurely ends the execution of the code in the function. Here's an example of return statements in action:</p>
+            <pre><code class="javascript">
+function addFiveTo(num) {
+    return num + 5;
+}
+
+console.log(addFiveTo(6));
+            </code></pre>
+            <pre class="js-output"><samp>
+11
+            </samp></pre>
+            <p>Note that- unlike in previous examples, where our functions called <code>console.log</code> to produce output; this function- when called- simply evaluates to a number.</p>
+            <h2>HTML-JavaScript Interaction</h2>
+            <h3>document.getElementById</h3>
+            <p>With all of this explained, we can combine HTML and JavaScript together... sort of. Consider the following HTML and JavaScript in their respective tabs:</p>
+            <pre><code class="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+    
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;p id="paragraph"&gt;JavaScript will change this text!&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+            <pre><code class="javascript">
+let paragraph = document.getElementById("paragraph");
+paragraph.innerText = "new text";
+            </code></pre>
+            <p>This new function <code>document.getElementById</code> returns a JavaScript object representing an HTML element. More specifically, the JavaScript object represents an HTML element with a given <code>id</code> attribute. In the above example, we're getting the element with the id <code>paragraph</code>, which the <code>p</code> element in the body has.</p>
+            <p>In the second line, we change the value of the element's <code>innerText</code> property to <code>"new text"</code>. The <code>innerText</code> property represents the text inside of an HTML element, and- when changed- the HTML element matches to update it. As such, all of this code together outputs the following:</p>
+            <div class="html-output">
+                <p>new text</p>
+            </div>
+            <p>We can also read these properties just like any other property of a JavaScript object. So if we added <code>console.log(paragraph.innerText)</code> after our current code, the program would then output <samp>"new text"</samp> to the console.</p>
+            <h3>Event Listeners</h3>
+            <p>We had JavaScript control HTML in the last section. Now let's do the reverse with event listeners! Event listeners are simply functions that the browser calls whenever some event happens- for example if an element is clicked, the user scrolls the mouse, or a key is pressed. Here is an example:</p>
+            <pre><code class="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+    
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;button id="click-me-button"&gt;Click me!&lt;/button&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+            <pre><code class="javascript">
+function clickHandler() {
+    console.log("clicked!");
+}
+
+let button = document.getElementById("click-me-button");
+button.onclick = clickHandler;
+            </code></pre>
+            <p>The HTML is standard stuff- a button with an id of <code>click-me-button</code>. The JavaScript starts with a function declaration that simply logs <samp>"clicked!"</samp> to the console. Then, we get the button with <code>document.getElementById</code> (notice, again, how the parameter to <code>document.getElementById</code> and the <code>id</code> attribute of the element are identical). Finally, we set the button's <code>onclick</code> property to the function. The browser knows to run the <code>onclick</code> function (if it exists) whenever the element is clicked, so clicking the button will now log <samp>"clicked!"</samp> to the console.</p>
+            <p>Note that the JavaScript can also be written like this to set <code>button.onclick</code> directly to the function without an intermediary. Also note the lack of a function name:</p>
+            <pre><code class="javascript">
+let button = document.getElementById("click-me-button");
+
+button.onclick = function() {
+    console.log("clicked!");
+}
+            </code></pre>
+            <h2>Conclusion</h2>
+            <p>So that's the end of Day 3! With the skills you've learned so far, you could make a four-function calculator! And speaking of the number four, <a href="day4.html">here's the link to day four</a>.</p>
+        </div>
+        <ul id="site-nav" data-root-dir="..">
+
+        </ul>
+        <script src="../highlight.pack.js"></script>
+        <script src="../make-nav.js"></script>
+    </body>
+</html>

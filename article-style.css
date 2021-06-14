@@ -331,6 +331,18 @@ tr:nth-child(even) {
 
 
 
+
+.side-by-side {
+    display: flex;
+}
+
+.side-by-side > * {
+    flex-grow: 1;
+}
+
+
+
+
 #section-nav {
     font-family: Helvetica, sans-serif;
     position: fixed;
