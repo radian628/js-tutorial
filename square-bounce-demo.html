@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <canvas id="canvas" width="450" height="450"></canvas>
+        <script>
+let canvas = document.getElementById("canvas");
+let ctx = canvas.getContext("2d");
+
+let squares = [];
+for (let i = 0; 10 > i; i++) {
+    squares.push({
+        xPosition: Math.random() * (canvas.width - 50),
+        yPosition: Math.random() * (canvas.height - 50),
+        xVelocity: Math.random() * 4 - 2,
+        yVelocity: Math.random() * 4 - 2
+    });
+}
+
+function doFrame() {
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (let i = 0; squares.length > i; i++) {
+        let square = squares[i];
+        square.xPosition += square.xVelocity;
+        square.yPosition += square.yVelocity;
+        if (square.xPosition < 0 || square.xPosition > canvas.width - 50) {
+            square.xVelocity = square.xVelocity * -1;
+        }
+        if (square.yPosition < 0 || square.yPosition > canvas.height - 50) {
+            square.yVelocity = square.yVelocity * -1;
+        }
+        ctx.fillRect(square.xPosition, square.yPosition, 50, 50);
+    }
+
+    setTimeout(doFrame, 1000 / 60);
+}
+doFrame();
+        </script>
+    </body>
+</html>
