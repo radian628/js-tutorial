@@ -343,6 +343,13 @@ tr:nth-child(even) {
 
 
 
+img, canvas {
+    max-width: 100%;    
+}
+
+
+
+
 #section-nav {
     font-family: Helvetica, sans-serif;
     position: fixed;

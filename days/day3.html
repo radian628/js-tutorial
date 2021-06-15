@@ -15,7 +15,7 @@
             <h1>Day 3</h1>
             <h2>DRY</h2>
             <p>There is a principle in programming that you will hear me frequently allude to and praise to no end. That is the principle of "Don't Repeat Yourself" (DRY for short), the idea that code should be free of pointless repetition.</p>
-            <p>Writing DRY code is important because doing so drastically aids in maintainability. For example, let's say you have several places where you want apply a complex formula to a number. You type out the formula each time. But then the formula turns out to have a mistake in it, and you have to go and change every single copy you just made to fix it. If you had made this formula a function, you'd only have to fix the mistake once, inside of the function body.</p>
+            <p>Writing DRY code is important because doing so drastically aids in maintainability. For example, let's say you have several places where you want apply a complex formula to a number. You type out the formula each time. But then the formula turns out to have a mistake in it, and you have to go and change every single copy you just made to fix it. If you had made this formula a function, removing the repitition, you'd only have to fix the mistake once, inside of the function body.</p>
             <h2>Logical Operators</h2>
             <h3>Checking Multiple Conditions</h3>
             <p>Consider the following situation: A roller coaster requires its passengers to be at least 120 centimeters tall, 40 kilograms in weight, and 10 years old. You make a function to check whether someone can ride the roller coaster with a given height, weight, and age. You could do it like this...</p>
@@ -62,7 +62,7 @@ function canRideRollerCoaster(height, weight, age) {
                     <td><code>false</code></td>
                 </tr>
             </table>
-            <p>And here's how we could use it to fix the following example. Before you reveal it, try and implement the improved version yourself:</p>
+            <p>And here's how we could use it to fix the following example. Before you reveal it, try and implement the improved version yourself. Test it by calling it with dummy data to make sure it works as intended:</p>
 
             <div class="spoiler">
                 <input type="checkbox">
@@ -120,7 +120,7 @@ function canRideRollerCoaster(height, weight, age) {
             <p>The <code>&&</code> operator is also called "AND"; <code>||</code> is called "OR"; and <code>!</code> is called "NOT".</p>
             <h2>Objects</h2>
             <h3>What are Objects?</h3>
-            <p>The idea of an <i>object</i> may just be the most important concept in JavaScript. Objects are- put simply- a bunch of variables "within" another variable. They are made up of a list of <b>keys</b>, strings that act as labels; and <b>values</b>, pieces of data attached to the keys. A key and its corresponding value together is called an <b>entry</b>, a <b>property</b>, or a <b>key-value pair</b>. Yes, all these names do, in fact, refer to the same thing.</p>
+            <p>The idea of an <i>object</i> may just be the most important concept in JavaScript. Objects are- put simply- a bunch of variables "within" another variable. They are made up of a list of <b>keys</b>, strings that act as labels; and <b>values</b>, pieces of data attached to the keys. A key and its corresponding value together is called an <b>entry</b>, a <b>property</b>, or a <b>key-value pair</b>. Yes, these three names do, in fact, refer to the same thing.</p>
             <h3>Creating Objects</h3>
             <p>Consider the following data, which describe a product at a grocery store- potato chips- of which the store has 123 bags- that sell for $1.25:</p>
             <table>
@@ -232,7 +232,7 @@ function clickHandler() {
 let button = document.getElementById("click-me-button");
 button.onclick = clickHandler;
             </code></pre>
-            <p>The HTML is standard stuff- a button with an id of <code>click-me-button</code>. The JavaScript starts with a function declaration that simply logs <samp>"clicked!"</samp> to the console. Then, we get the button with <code>document.getElementById</code> (notice, again, how the parameter to <code>document.getElementById</code> and the <code>id</code> attribute of the element are identical). Finally, we set the button's <code>onclick</code> property to the function. The browser knows to run the <code>onclick</code> function (if it exists) whenever the element is clicked, so clicking the button will now log <samp>"clicked!"</samp> to the console.</p>
+            <p>The HTML is standard stuff- a button with an id of <code>click-me-button</code>. The JavaScript starts with a function declaration that simply logs <samp>"clicked!"</samp> to the console. Then, we get the button with <code>document.getElementById</code> (notice, again, how the parameter to <code>document.getElementById</code> and the <code>id</code> attribute of the element are identical). Finally, we set the button's <code>onclick</code> property to the function. The browser knows to run the <code>onclick</code> function (if it exists) whenever the element is clicked, so clicking the button will now log <samp>"clicked!"</samp> to the console, because it runs <code>clickHandler</code>. Remember not to include parentheses after the function in this case, because we are referring to <i>the function itself</i>, not its return value (if any).</p>
             <p>Note that the JavaScript can also be written like this to set <code>button.onclick</code> directly to the function without an intermediary. Also note the lack of a function name:</p>
             <pre><code class="javascript">
 let button = document.getElementById("click-me-button");
