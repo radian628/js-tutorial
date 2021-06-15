@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>HTML/JS Day 4</title>
+        <meta charset="UTF-8">
+        <meta description="Day 3 of the course. Focuses on input elements/events and the HTML5 Canvas API.">
+        <link rel="stylesheet" type="text/css" href="../article-style.css">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    </head>
+    <body>
+        <ul id="section-nav">
+            
+        </ul>
+        <div class="article">
+            <h1>Day 3</h1>
+            <h2>Input Elements</h2>
+            <h3>Inputs and the "Value" Attribute</h3>
+            <p><code>&lt;input&gt;</code> elements are among the most important of HTML elements. They allow the user to supply text, numbers, files, colors, and much more, data that can all be accessed from JavaScript.</p>
+            <p>As you might remember, <code>&lt;input&gt;</code>s have a <code>value</code> attribute containing whatever data has been supplied to them. This same data can be accessed from JavaScript with a property of the same name.</p>
+            <h3>The "Change" Event</h3>
+            <p>The <code>change</code> event is fired from an <code>&lt;input&gt;</code> element when the user exits its editable region after making a change to its <code>value</code>. The corresponding property for the <code>change</code> event is <code>onchange</code> (just like <code>onclick</code> for the <code>click</code> event). Remember that, in general, the property name will have "on" before the event name.</p>
+            <p>Type the following into JSFiddle, run it, and see what happens when you type into the text box:</p>
+            <pre><code class="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+    
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;input value="change my text!" id="input"&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+            <pre><code class="javascript">
+let input = document.getElementById("input");
+input.onchange = function () {
+    console.log(input.value);
+}
+            </code></pre>
+            <h3>The "Input" Event</h3>
+            <pre><code class="javascript">
+let input = document.getElementById("input");
+input.oninput = function () {
+    console.log(input.value);
+}
+            </code></pre>
+            <p>Now change the <code>onchange</code> to <code>oninput</code> (as shown above), re-run the program, and try typing again. Notice the difference?</p>
+            <h2>HTML5 Canvas API</h2>
+        </div>
+        <ul id="site-nav" data-root-dir="..">
+
+        </ul>
+        <script src="../highlight.pack.js"></script>
+        <script src="../make-nav.js"></script>
+    </body>
+</html>

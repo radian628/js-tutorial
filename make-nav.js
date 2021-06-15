@@ -100,7 +100,7 @@ async function addSiteNav() {
             <li><a data-href="/days/day1.html">Day 1 - HTML</a></li>
             <li><a data-href="/days/day2.html">Day 2 - Variables, Math, Comparison, If/Else, Functions</a></li>
             <li><a data-href="/days/day3.html">Day 3 - || and &&, DRY, Objects, DOM, Events</a></li>
-            <li><a data-href="/days/day4.html">Day 4</a></li>
+            <li><a data-href="/days/day4.html">Day 4 - Input Elements and HTML5 Canvas API</a></li>
             <li><a data-href="/days/day5.html">Day 5</a></li>
             <li><a data-href="/days/day6.html">Day 6</a></li>
             <li><a data-href="/days/day7.html">Day 7</a></li>
