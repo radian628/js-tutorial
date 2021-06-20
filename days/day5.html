@@ -13,8 +13,103 @@
         </ul>
         <div class="article">
             <h1>Day 5</h1>
-            <h2>Paths</h2>
-            <p></p>
+            <h2>HTML5 Canvas API</h2>
+            <p>Okay, this is where things get interesting. The HTML5 Canvas API is basically an image editor you control with code. You can draw rectangles, lines, circles, images, text, and a whole lot of other stuff. That might seem simple and rather boring, but combine some of those elements together and you can achieve amazing results. But first...</p>
+            <h3>What is an "API" anyway?</h3>
+            <p>"API" is an acronym for <b>Application Programming Interface</b>. It's basically any way of controlling <i>something</i> with code. That description is vague for a reason. Compare it to a GUI (graphical user interface), which I'm sure you're familiar with. GUIs let you control things with buttons, dials, inputs, and all those other interactive visual elements. An API is like a GUI, except all the, buttons and dials and whatnot are replaced with code. Interestingly, virtually all GUIs just control an API under-the-hood.</p>
+            <p>And funnily enough, you've already been working with APIs. <code>console.log</code>? That's the console API. <code>document.getElementById</code>? That's part of the HTML DOM (Document Object Model) API. And now you're going to learn about the canvas API.</p>
+            <h3>The Canvas API</h3>
+            <p>So now that we've gotten that out of the way, let's get back to the canvas API, which is- again- essentially an image editor you control with code. First, we need to set up the canvas element itself, like so:</p>
+            <pre><code class="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+    
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;canvas id="canvas" width="512" height="512"&gt;&lt;/canvas&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+            <p>Here we have two new attributes, the <code>width</code> and the <code>height</code> attribute. These describe the width and the height of the canvas <i>in pixels</i>. It's important to note that while by default, these correspond to the actual size of the canvas <i>as it appears on the screen</i>, CSS can allow the apparent size to differ. However, the actual size of the underlying image, in terms of pixels, will <i>always</i> be determined by the <code>width</code> and <code>height</code> attributes.</p>
+            <p>With all that out of the way, we can start work on the JavaScript:</p>
+            <pre><code class="javascript">
+let canvas = document.getElementById("canvas");
+let ctx = canvas.getContext("2d");
+            </code></pre>
+            <p>First line we've done many times before- getting an HTML element with <code>document.getElementById</code>. The second line is something new. HTML canvas element objects have a special function called <code>getContext</code> that returns a <i>canvas context</i>. A canvas context is a different object whose properties consist of many of the functions (among other things) that allow you to draw on a canvas.</p> 
+            <h3>The First Square</h3>   
+            <p>Let's start out by drawing a square. Change the JavaScript to the following (first two lines are the same):</p>
+            <pre><code class="javascript">
+let canvas = document.getElementById("canvas");
+let ctx = canvas.getContext("2d");
+
+ctx.fillRect(50, 50, 25, 25);
+            </code></pre>
+            <p>Here's what the result should look like:</p>
+            <canvas id="canvas1" width="512" height="512"></canvas>
+            <script>
+                let canvas = document.getElementById("canvas1");
+                let ctx = canvas.getContext("2d");
+                ctx.fillRect(50, 50, 25, 25);
+            </script>
+            <h4>Canvas Coordinate System</h4>
+            <p>The <code>fillRect</code> function of the canvas context- as you might expect- draws a filled rectangle. However, it's important to note what each of its four parameters do. To do this, we need to understand the coordinate system that the canvas uses. Firstly, all units are generally pixels. Secondly, and most importantly, I'd say, the origin is defined as the top-left corner. The positive x-direction is towards the right (as you might expect), but- strangely- the positive y-direction is <i>downward</i>. Here's an illustration that demonstrates this coordinate system on a 512-by-512-pixel canvas (this is by no means the <i>only</i> resolution you can use, however):</p>
+            <img src="canvas-coordinate-system.png">
+            <p>Now this might seem strange and unintuitive to you. <i>Why in the world do Y-values increase as you go down?</i> However, in the context of web pages, it makes a whole lot more sense. Web pages, after all, always start scrolled to the top. The top of the page is the default and the beginning- in other words, the origin. This is even reflected by one of the primary purposes of websites: reading textual articles (like you're doing here!). In English at least, text starts at the top and goes down, <i>just like the canvas coordinate system</i>. This also allows the canvas coordinate system to be consistent- you'll eventually find that position-related properties of HTML elements use the same coordinate system.</p>
+            <h4>Okay, back to the square.</h4>
+            <p>Let's return to the square. As a reminder, here's our HTML and JavaScript:</p>
+            <pre><code class="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+    
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;canvas id="canvas" width="512" height="512"&gt;&lt;/canvas&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+            <pre><code class="javascript">
+let canvas = document.getElementById("canvas");
+let ctx = canvas.getContext("2d");
+
+ctx.fillRect(50, 50, 25, 25);
+            </code></pre>
+            <p>The first two parameters describe the coordinates of the top-left corner of the square. The last two describe the square's width and height. Here's an illustration that shows how each parameter works:</p>
+            <img src="fillrect-explained.png">
+            <p>Keep in mind that other canvas drawing functions won't have documentation to this level of detail, so remember to learn to experiment with them if the documentation you <i>do</i> get is insufficient. In fact, this is often true for APIs in general.</p>
+            <h3>Covering the Canvas</h3>
+            <p>Given that the canvas is 512 by 512 pixels, change the JavaScript to draw a rectangle that covers the whole canvas (and nothing more). Solution is below:</p>
+            <div class="spoiler">
+                <input type="checkbox">
+                <pre><code class="javascript">
+let canvas = document.getElementById("canvas");
+let ctx = canvas.getContext("2d");
+
+ctx.fillRect(0, 0, 512, 512);
+                </code></pre>
+            </div>
+            <h3>Rectangle Outline</h3>
+            <p>Draw the <i>outline</i> of a rectangle (not a filled rectangle). The rectangle's top right corner should be at (100, 150), its width should be 50 pixels, and its height should be 200 pixels. This is another one of those "google it yourself" things! Remember that- in general- outlines are called "strokes", and the interiors of shapes are called "fills". As such, you can search for "HTML5 canvas stroke rectangle" if you're unsure as to what to search. Here is what it should look like, if you're at all confused about my description:</p>
+            <canvas id="canvas2" width="512" height="512"></canvas>
+            <script>
+                let canvas2 = document.getElementById("canvas2");
+                let ctx2 = canvas2.getContext("2d");
+                ctx2.strokeRect(100, 150, 50, 200);
+            </script>
+            <p>Solution:</p>
+            <div class="spoiler">
+                <input type="checkbox">
+                <pre><code class="javascript">
+let canvas = document.getElementById("canvas");
+let ctx = canvas.getContext("2d");
+
+ctx.strokeRect(100, 150, 50, 200);
+                </code></pre>
+            </div>
+            <h2>Challenge: Smiley Faces</h2>
+            <p>Create a function that draws a smiley face on the canvas out of rectangles, at the given x and y position (use function parameters to specify the position). If you feel like all this rectangle stuff is too easy, try it with some other canvas methods (<b>methods</b> are simply functions that are also properties of an object). Remember to test the function (preferably multiple times at different positions) to make sure that it works!</p>
         </div>
         <ul id="site-nav" data-root-dir="..">
 

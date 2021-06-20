@@ -3,7 +3,7 @@
     <head>
         <title>HTML/JS Day 2</title>
         <meta charset="UTF-8">
-        <meta description="Day 2 of the course (introduction to JavaScript). Focuses on console.log, variables, math, booleans, if-statements, and functions.">
+        <meta description="Day 2 of the course (introduction to JavaScript). Focuses on console.log, variables, math, and functions.">
         <link rel="stylesheet" type="text/css" href="../article-style.css">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
     </head>
@@ -122,265 +122,72 @@ console.log(baz);
             <pre><code class="javascript">console.log(10 + 8 / 2);</code></pre>
             <p>Conversely, this code outputs <samp>9</samp>.</p>
             <pre><code class="javascript">console.log((10 + 8) / 2);</code></pre>
-            <h2>Booleans</h2>
-            <h3>What are Booleans?</h3>
-            <p>Booleans are another data type in JavaScript (a <b>data type</b> is a distinct form that data (i.e. variables) can take). Booleans can only take one of two values: <code>true</code> or <code>false</code>.</p>
-            <pre><code class="javascript">let boolean = true;
-let anotherBoolean = false;</code></pre>
-            <h3>Booleans from Comparison Operators</h3>
-            <p>Comparison operators are operators that- as you might expect- compare the size of two numbers. They output booleans- <code>true</code> if the comparison is accurate, and <code>false</code> if it is not. As an example, <code>6 &gt; 2</code> is <code>true</code> (because six is, in fact, greater than two), whereas <code>5 &lt; 4</code> is <code>false</code> (because five is not less than four).</p>
-            <h3>Comparison Operator Table</h3>
-            <p>This might look a bit intimidating. However, if you're well-versed with comparison from your math class, you'll likely only need to consider the leftmost two rows (the others are just examples).</p>
-            <table>
-                    <tr>
-                        <th class="bold">Operator</th>
-                        <th class="bold">Name</th>
-                        <th class="bold">Example 1</th>
-                        <th class="bold">Output 1</th>
-                        <th class="bold">Example 2</th>
-                        <th class="bold">Output 2</th>
-                    </tr>
-                    <tr>
-                        <td><code>&gt;</code></td>
-                        <td>Greater Than</td>
-                        <td><code>6 &gt; 3</code></td>
-                        <td><code>true</code></td>
-                        <td><code>4 &gt; 4</code></td>
-                        <td><code>false</code></td>
-                    </tr>
-                    <tr>
-                        <td><code>&lt;</code></td>
-                        <td>Less Than</td>
-                        <td><code>6 &lt; 3</code></td>
-                        <td><code>false</code></td>
-                        <td><code>4 &lt; 4</code></td>
-                        <td><code>false</code></td>
-                    </tr>
-                    <tr>
-                        <td><code>&gt;=</code></td>
-                        <td>Greater Than or Equal To</td>
-                        <td><code>6 &gt;= 3</code></td>
-                        <td><code>true</code></td>
-                        <td><code>4 &gt;= 4</code></td>
-                        <td><code>true</code></td>
-                    </tr>
-                    <tr>
-                        <td><code>&lt;=</code></td>
-                        <td>Less Than or Equal To</td>
-                        <td><code>6 &lt;= 3</code></td>
-                        <td><code>false</code></td>
-                        <td><code>4 &lt;= 4</code></td>
-                        <td><code>true</code></td>
-                    </tr>
-                    <tr>
-                        <td><code>==</code></td>
-                        <td>Equal</td>
-                        <td><code>6 == 3</code></td>
-                        <td><code>false</code></td>
-                        <td><code>4 == 4</code></td>
-                        <td><code>true</code></td>
-                    </tr>
-                    <tr>
-                        <td><code>!=</code></td>
-                        <td>Not Equal</td>
-                        <td><code>6 != 3</code></td>
-                        <td><code>true</code></td>
-                        <td><code>4 != 4</code></td>
-                        <td><code>false</code></td>
-                    </tr>
-            </table>
-            <p>Warning: <b>Do not confuse <code>==</code> (equals) with <code>=</code> (assignment).</b> The former tests whether two things are equal (outputting <code>true</code> if they are, and <code>false</code> otherwise), while the latter sets the variable on the left to the value on the right.</p>
-            <h2>If-Statements</h2>
-            <p>If-statements allow you to run code conditionally- in other words, they only run the code within them <b>if</b> a given boolean is <code>true</code>. For example, the code below only prints <samp>"x is greater than 7!"</samp> if the variable <code>x</code> is greater than 7.</p>
-            <pre><code class="javascript">let x = 10;
-if (x > 7) {
-    console.log("x is greater than 7!");
-}
-x = 5;
-if (x > 7) {
-    console.log("x is greater than 7!");
-}</code></pre>
-            <p>The way the code is currently structured, how many times will it output <samp>"x is greater than 7!"</samp>? Which if-statement(s) will execute the code within them?</p>
-            <p>Answer:</p>
-            <div class="spoiler">
-                <input type="checkbox">
-                <p>Once. Only the first if-statement will execute the code between its curly braces.
-                </p>
-            </div>
-            <h3>Else</h3>
-            <p>Take the following example:</p>
-            <pre><code class="javascript">let chanceOfRain = 0.75;
-if (chanceOfRain &gt; 0.5) {
-    console.log("It is likely to rain.");
-}
-if (chanceOfRain &lt;= 0.5) {
-    console.log("It is unlikely to rain.");
-}</code></pre>
-            <p>You may quickly realize that the second if-statement will only run if the first one doesn't. After all, the first one uses a "greater than" condition, whereas the second uses a "less than or equal to" condition- both with the same operands (operands is a term for what operators operate on)! The <code>else</code> keyword can simplify this code- it lets you provide a block of code that will only run if the preceding if-statement does not.</p>
-            <p>The following example functions identically to the previous one, but uses an <code>else</code> block instead of another if-statement. To use <code>else</code>, first type the word <code>else</code>, followed by curly brackets, in which you'll put your code. Unlike the if-statement, you don't need parentheses.</p>
-            <pre><code class="javascript">let chanceOfRain = 0.75;
-if (chanceOfRain &gt; 0.5) {
-    console.log("It is likely to rain.");
-} else {
-    console.log("It is unlikely to rain.");
-}</code></pre>
-            <p>Side note: Changing the structure of code while keeping the same functionality (which is what we did here) is called <b>refactoring</b>.</p>
-            <h3>Else If</h3>
-            <p>Multiple if-statements can be chained together using <code>else if</code>. <code>else if</code> functions identically to <code>else</code>, except the code after the <code>else if</code> only runs if the supplied condition is true. Multiple <code>else if</code>s can even be chained together, each one only executing if all the previous ones have not.</p> 
-            <p>To use <code>else if</code>, just type <code>else</code> followed by an if-statement just like you'd write it on your own.</p>
-            <p>Consider the following example, which does exactly what you might expect:</p>
-            <pre><code class="javascript">let chanceOfRain = 0.2;
-if (chanceOfRain &gt; 0.8) {
-    console.log("It is likely to rain.");
-} else if (chanceOfRain &gt; 0.3) {
-    console.log("It is somewhat likely to rain.");
-} else {
-    console.log("It is unlikely to rain.");
-}</code></pre>
-            <p>Given the above code, what is the likelihood of rain? Check your answer by typing the example into JSFiddle.</p>
-            <h3>Another Example of Else-if</h3>
-            <p>Edit the previous example so that it prints <samp>"It's definitely not going to rain!"</samp> if the chance of rain is exactly 0. Test your code with different values for <code>chanceOfRain</code> to see if it works! Note that your solution might look different but still work. There are multiple solutions to essentially every non-trivial problem in JavaScript!</p>
-            <p>Possible solution:</p>
-            <div class="spoiler">
-                <input type="checkbox">
-                <pre><code class="javascript">let chanceOfRain = 0.2;
-if (chanceOfRain &gt; 0.8) {
-    console.log("It is likely to rain.");
-} else if (chanceOfRain &gt; 0.3) {
-    console.log("It is somewhat likely to rain.");
-} else if (chanceOfRain != 0) {
-    console.log("It is unlikely to rain.");
-} else {
-    console.log("It's definitely not going to rain!");
-}</code></pre>
-            </div>
             <h2>Functions</h2>
-            <p>Let's say we have to check the chance of rain three different times, using the previous code we wrote. Let's represent the three chances we're interested in using variables:</p>
-            <pre><code class="javascript">let chanceOfRain1 = 0;
-let chanceOfRain2 = 0.5;
-let chanceOfRain3 = 0.9;</code></pre>
-            <p>We could, of course, do it like this:</p>
-            <pre><code class="javascript">let chanceOfRain1 = 0;
-let chanceOfRain2 = 0.5;
-let chanceOfRain3 = 0.9;
-
-if (chanceOfRain1 &gt; 0.8) {
-    console.log("It is likely to rain.");
-} else if (chanceOfRain1 &gt; 0.3) {
-    console.log("It is somewhat likely to rain.");
-} else if (chanceOfRain1 != 0) {
-    console.log("It is unlikely to rain.");
-} else {
-    console.log("It's definitely not going to rain!");
-}
-
-if (chanceOfRain2 &gt; 0.8) {
-    console.log("It is likely to rain.");
-} else if (chanceOfRain2 &gt; 0.3) {
-    console.log("It is somewhat likely to rain.");
-} else if (chanceOfRain2 != 0) {
-    console.log("It is unlikely to rain.");
-} else {
-    console.log("It's definitely not going to rain!");
-}
-
-if (chanceOfRain3 &gt; 0.8) {
-    console.log("It is likely to rain.");
-} else if (chanceOfRain3 &gt; 0.3) {
-    console.log("It is somewhat likely to rain.");
-} else if (chanceOfRain3 != 0) {
-    console.log("It is unlikely to rain.");
-} else {
-    console.log("It's definitely not going to rain!");
-}</code></pre>
-            <p>However, as you can probably see, this is horribly repetitive. Imagine if you wanted to add a condition that says <samp>"It will certaintly rain!"</samp> if the chance of rain is 1? You'd have to do that three times!</p>
-            <p>Because of this (along with their general laziness), programmers <i>hate</i> needless repetition, and thus, they've developed tools to combat it. In fact, if any of your code is extremely repetitive, you should seek out a better way, because a disgruntled programmer has likely already thought of one, and added it to the language.</p>
-            <p>Often the best way of eliminating repetition is using <b>functions</b>. A function is simply a named block of code that you can run as many times as you want. They are created with the keyword <code>function</code>, followed by the function name (which works the same as a variable name), after which you put parentheses, and finally curly brackets in which you put your code. Here's a function that simply writes <samp>"Hello World!"</samp> to the console:</p>
-            <pre><code class="javascript">function helloWorld() {
+            <p>Functions are essentially reusable blocks of code. You can create one with the keyword <code>function</code> followed by the name of the function, a pair of parentheses, and finally curly brackets, between which you put the function's code. This is called <b>declaring</b> a function, and the code within the function is the <b>function body</b>. This function below just logs <samp>"Hello World!"</samp> to the console.</p>
+            <pre><code class="javascript">
+function helloWorld() {
     console.log("Hello World!");
-}</code></pre>
-            <p>Between the parentheses, you can optionally put a list of <b>function arguments</b>. These are just a bunch of pieces of data that you "pass" or "plug" into the function, influencing its behavior. In math class, if you've seen something like <var>f(x)</var>, the function argument is basically the <var>x</var>.</p>
-            <p>To actually run the function, type the name of the function, followed by a set of parentheses. Between the parentheses, put the values you want the arguments to take. Even if there are no arguments, you should still include the parentheses! In JavaScript, <b>functions are just another type of data</b> (you'll hear me repeat this a lot), so just writing the function name merely refers to the function itself!</p>
-            <p>Here's the previous example, refactored to use a function:</p>
-            <pre><code class="javascript">function describeChanceOfRain(chanceOfRain) {
-    if (chanceOfRain &gt; 0.8) {
-        console.log("It is likely to rain.");
-    } else if (chanceOfRain &gt; 0.3) {
-        console.log("It is somewhat likely to rain.");
-    } else if (chanceOfRain != 0) {
-        console.log("It is unlikely to rain.");
-    } else {
-        console.log("It's definitely not going to rain!");
-    }
 }
+            </code></pre>
+            <p>In JavaScript, <b>functions are data</b> and therefore can be assigned to variables. As such, you could also write the above example like this (though the former is still more common):</p>
+            <pre><code class="javascript">
+let helloWorld = function () {
+    console.log("Hello World!");
+}
+            </code></pre>
+            <h3>Calling Functions</h3>
+            <p>In order to actually run the code within a function, you have to <i>call</i> it. To call a function, type the name of the function, followed by a pair of parentheses. To call the <code>helloWorld</code> function above, you would need to type the following:</p>
+            <pre><code class="javascript">
+helloWorld();
+            </code></pre>
+            <p>Remember to include the parentheses. Since functions are data, just typing the function name (<code>helloWorld</code>) refers to the <i>function itself</i>.</p>
+            <h3>Function Parameters</h3>
+            <p>Data can be "passed" into a function to modify the way it works. In the function declaration, you can put a comma-separated list of names to represent the <b>parameters</b> the function accepts. Consider the following function that converts fahrenheit to celsius:</p>
+            <pre><code class="javascript">
+function fahrenheitToCelsius(degreesInFahrenheit) {
+    console.log((degreesInFahrenheit - 32) * 5 / 9);
+}
+            </code></pre>
+            <p>This function accepts one parameter, <code>degreesInFahrenheit</code>. Inside the function body, we can treat <code>degreesInFahrenheit</code> like a variable. When calling a parameterized function, we must give actual values to the parameters. We supply these parameters as a comma-separated list within the parentheses in the function call. This example calculates 70 degrees fahrenheit in celsius, and logs it to the console:</p>
+            <pre><code class="javascript">
+fahrenheitToCelsius(70);
+            </code></pre>
+            <p>However, we can make this function even better...</p>
+            <h3>Return Values</h3>
+            <p>Just <code>console.log()</code>ing the degrees in celsius doesn't make much sense- after all, what if we want to do something else with it? We could, of course, use a variable to store the value:</p>
+            <pre><code class="javascript">
+let degreesInCelsius;
 
-let chanceOfRain1 = 0;
-let chanceOfRain2 = 0.5;
-let chanceOfRain3 = 0.9;
-
-describeChanceOfRain(chanceOfRain1);
-describeChanceOfRain(chanceOfRain2);
-describeChanceOfRain(chanceOfRain3);</code></pre>
-            <p>Props to you if you figured this out already, but our good old friend <code>console.log</code> is a function too!</p>
-            <h2>FizzBuzz</h2>
-            <p>Here's an assignment to test your skills: Create a function <code>fizzBuzz(x)</code> that abides by the following rules:</p>
-            <ul>
-                <li>If <code>x</code> is divisible by 3, print <samp>"Fizz"</samp> to the console.</li>
-                <li>If <code>x</code> is divisible by 5, print <samp>"Buzz"</samp> to the console.</li>
-                <li>If <code>x</code> is divisible by both 3 and 5, print <samp>"FizzBuzz"</samp> (and only <samp>"FizzBuzz"</samp>) to the console.</li>
-                <li>If none of the previous three conditions apply, print the value of <code>x</code> to the console.</li>
-            </ul>
-            <p>Here's a table showing what values x should output (make it work for any positive integer however- not just these!):</p>
-            <table>
-                <tr>
-                    <th class="bold">Expression</th>
-                    <th class="bold">Output</th>
-                </tr>
-                <tr><td><code>fizzBuzz(1)</code></td><td><samp>1</samp></td></tr>
-                <tr><td><code>fizzBuzz(2)</code></td><td><samp>2</samp></td></tr>
-                <tr><td><code>fizzBuzz(3)</code></td><td><samp>"Fizz"</samp></td></tr>
-                <tr><td><code>fizzBuzz(4)</code></td><td><samp>4</samp></td></tr>
-                <tr><td><code>fizzBuzz(5)</code></td><td><samp>"Buzz"</samp></td></tr>
-                <tr><td><code>fizzBuzz(6)</code></td><td><samp>"Fizz"</samp></td></tr>
-                <tr><td><code>fizzBuzz(7)</code></td><td><samp>7</samp></td></tr>
-                <tr><td><code>fizzBuzz(8)</code></td><td><samp>8</samp></td></tr>
-                <tr><td><code>fizzBuzz(9)</code></td><td><samp>"Fizz"</samp></td></tr>
-                <tr><td><code>fizzBuzz(10)</code></td><td><samp>"Buzz"</samp></td></tr>
-                <tr><td><code>fizzBuzz(11)</code></td><td><samp>11</samp></td></tr>
-                <tr><td><code>fizzBuzz(12)</code></td><td><samp>"Fizz"</samp></td></tr>
-                <tr><td><code>fizzBuzz(13)</code></td><td><samp>13</samp></td></tr>
-                <tr><td><code>fizzBuzz(14)</code></td><td><samp>14</samp></td></tr>
-                <tr><td><code>fizzBuzz(15)</code></td><td><samp>"FizzBuzz"</samp></td></tr>
-            </table>
-            <p>Fun Fact: This is a common question on job interviews!</p>
-            <h2>Challenge: N Hello Worlds</h2>
-            <p>Here's a fun challenge: Create a function <code>helloWorlds</code> that prints <samp>Hello World!</samp> <code>n</code> times, where <code>n</code> is one of its arguments. So, for example, <code>helloWorlds(4);</code> would print the following:</p>
-            <pre class="js-output">
-"Hello World!"
-"Hello World!"
-"Hello World!"
-"Hello World!"</pre>
-            <p>Stuck? Here's a hint:</p>
-            <div class="spoiler">
-                <input type="checkbox">
-                <p>Hint: <code>helloWorlds</code> should <i>call itself.</i></p>
-            </div>
-            <p>Possible solution:</p>
-            <div class="spoiler">
-                <input type="checkbox">
-                <div>
-                    
-                <pre><code class="javascript">function helloWorlds(n) {
-    if (n > 0) {
-        console.log("Hello World!");
-        helloWorlds(n - 1);
-    }
-}</code></pre>
-                    <p>The phenomenon of a function calling itself is called <b>recursion</b>. A function that does recursion is called a <b>recursive function</b>.</p>
-                </div>
-            </div>
+function fahrenheitToCelsius(degreesInFahrenheit) {
+    degreesInCelsius = (degreesInFahrenheit - 32) * 5 / 9;
+}
+            </code></pre>
+            <p>Avoid doing this if at all possible, because there is actually a much better method of gaining access to the output of a function: <b>return values</b>. When a function "returns" a piece of data, a call to that function acts as if it is that data. A function can return some data by simply putting the keyword <code>return</code> before the data. Let's make the <code>fahrenheitToCelsius</code> function <i>return</i> the temperature in celsius, so we can use it elsewhere:</p>
+            <pre><code class="javascript">
+function fahrenheitToCelsius(degreesInFahrenheit) {
+    return (degreesInFahrenheit - 32) * 5 / 9;
+}
+            </code></pre>
+            <p>We could now, for example, store the output of this function in a variable, and do whatever we want with it:</p>
+            <pre><code class="javascript">
+let seventyInCelsius = fahrenheitToCelsius(70);
+let seventyInKelvin = seventyInCelsius + 273.15;
+            </code></pre>
+            <p>Notice how <code>fahrenheitToCelsius(70)</code> is being treated as a piece of data- this is only possible because of the <code>return</code> statement.</p>
+            <p>Note that- when a function encounters a <code>return</code> statement- the function will end prematurely. In addition, functions that don't return anything will return the value <code>undefined</code>, which is another data type you'll see often.</p>
+            <pre><code class="javascript">
+function test() {
+    console.log("this code will run!");
+    return;
+    console.log("but this won't!");
+}
+            </code></pre>
+            <p>The above function will return <code>undefined</code> because there is nothing after the <code>return</code> statement. If there were no <code>return</code> statement at all, it would also return <code>undefined</code>.</p>
+            <h2>DRY</h2>
+            <p>There is a principle in programming that you will hear me frequently allude to and praise to no end. That is the principle of "Don't Repeat Yourself" (DRY for short), the idea that code should be free of pointless repetition.</p>
+            <p>Writing DRY code is important because doing so drastically aids in maintainability. For example, let's say you have several places where you want apply a complex formula to a number. You type out the formula each time. But then the formula turns out to have a mistake in it, and you have to go and change every single copy you just made to fix it. If you had made this formula a function, removing the repitition, you'd only have to fix the mistake once, inside of the function body.</p>
             <h2>Conclusion</h2>
-            <p>That's it for Day 2! See you at <a href="day3.html">Day 3</a>, where we'll combine booleans/conditions using logical operators, learn more about avoiding repetition, discover the power of objects, and combine JavaScript and HTML together!</p>
+            <p>That's it for Day 2! See you at <a href="day3.html">Day 3</a>, where we'll learn how to compare with booleans, conditional operators, and logical operators; and make decisions with if, else, and else-if statements.</p>
         </div>
         <ul id="site-nav" data-root-dir="..">
 

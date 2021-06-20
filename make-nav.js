@@ -3,6 +3,9 @@
 // });
 
 setTimeout(() => {
+    Array.from(document.querySelectorAll("code")).forEach(e => {
+        e.innerText = e.innerText.replace(/^\s+|\s+$/g, "");
+    });
     if (window.hljs) hljs.highlightAll();
 });
 
@@ -98,10 +101,10 @@ async function addSiteNav() {
     <li>Days
         <ul>
             <li><a data-href="/days/day1.html">Day 1 - HTML</a></li>
-            <li><a data-href="/days/day2.html">Day 2 - Variables, Math, Comparison, If/Else, Functions</a></li>
-            <li><a data-href="/days/day3.html">Day 3 - || and &&, DRY, Objects, DOM, Events</a></li>
-            <li><a data-href="/days/day4.html">Day 4 - Input Elements and HTML5 Canvas API</a></li>
-            <li><a data-href="/days/day5.html">Day 5</a></li>
+            <li><a data-href="/days/day2.html">Day 2 - Variables, Math, Functions</a></li>
+            <li><a data-href="/days/day3.html">Day 3 - Booleans, Comparision, If/Else, Logic</a></li>
+            <li><a data-href="/days/day4.html">Day 4 - Objects, DOM, Events</a></li>
+            <li><a data-href="/days/day5.html">Day 5 - HTML5 Canvas API</a></li>
             <li><a data-href="/days/day6.html">Day 6</a></li>
             <li><a data-href="/days/day7.html">Day 7</a></li>
             <li><a data-href="/days/day8.html">Day 8</a></li>
