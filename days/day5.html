@@ -79,7 +79,8 @@ ctx.fillRect(50, 50, 25, 25);
             <p>The first two parameters describe the coordinates of the top-left corner of the square. The last two describe the square's width and height. Here's an illustration that shows how each parameter works:</p>
             <img src="fillrect-explained.png">
             <p>Keep in mind that other canvas drawing functions won't have documentation to this level of detail, so remember to learn to experiment with them if the documentation you <i>do</i> get is insufficient. In fact, this is often true for APIs in general.</p>
-            <h3>Covering the Canvas</h3>
+            <h3>More fillRect</h3>
+            <h4>Covering the Canvas</h4>
             <p>Given that the canvas is 512 by 512 pixels, change the JavaScript to draw a rectangle that covers the whole canvas (and nothing more). Solution is below:</p>
             <div class="spoiler">
                 <input type="checkbox">
@@ -90,26 +91,131 @@ let ctx = canvas.getContext("2d");
 ctx.fillRect(0, 0, 512, 512);
                 </code></pre>
             </div>
-            <h3>Rectangle Outline</h3>
-            <p>Draw the <i>outline</i> of a rectangle (not a filled rectangle). The rectangle's top right corner should be at (100, 150), its width should be 50 pixels, and its height should be 200 pixels. This is another one of those "google it yourself" things! Remember that- in general- outlines are called "strokes", and the interiors of shapes are called "fills". As such, you can search for "HTML5 canvas stroke rectangle" if you're unsure as to what to search. Here is what it should look like, if you're at all confused about my description:</p>
-            <canvas id="canvas2" width="512" height="512"></canvas>
-            <script>
-                let canvas2 = document.getElementById("canvas2");
-                let ctx2 = canvas2.getContext("2d");
-                ctx2.strokeRect(100, 150, 50, 200);
-            </script>
-            <p>Solution:</p>
+            <h4>Drawing Rectangles</h4>
+            <p>How would you use <code>ctx.fillRect</code> to draw the following rectangles? Read these examples very carefully.</p>
+            <ul>
+                <li>A rectangle 50 pixels from the left of the canvas, 30 pixels from the top of the canvas, 100 pixels wide, and 150 pixels tall.</li>
+                <li>A square centered at the point 100 pixels from the left of the canvas and 125 pixels from the top of the canvas. It should have a side length of 50 pixels.</li>
+                <li>A square 100 pixels from the right of the canvas and 50 pixels from the bottom of the canvas. It should have a side length of 30 pixels. This should work regardless of the canvas size.</li>
+            </ul>
+            <p>Assume that the following code is already present for all examples:</p>
+            <pre><code class="javascript">
+let canvas = document.getElementById("canvas");
+let ctx = canvas.getContext("2d");
+            </code></pre>
+            <p>Note that you can use the <code>width</code> and <code>height</code> properties of the canvas element object (the one returned by <code>document.getElementById</code>) to find the size of the canvas in pixels. Remember that, since these are properties, you'll need to prefix them with the name of the canvas element object (in this case, that is the variable <var>canvas</var>.</p>           
             <div class="spoiler">
                 <input type="checkbox">
-                <pre><code class="javascript">
+                <div>
+                    <p>Rectangle 1</p>
+                    <pre><code class="javascript">
+    ctx.fillRect(50, 30, 100, 150);
+                    </code></pre>
+                    <p>Rectangle 2</p>
+                    <pre><code class="javascript">
+    ctx.fillRect(75, 100, 50, 50);
+                    </code></pre>
+                    <p>Rectangle 3</p>
+                    <pre><code class="javascript">
+    ctx.fillRect(canvas.width - 130, canvas.height - 80, 30, 30);
+                    </code></pre>
+                </div>
+            </div>
+            <h3>Paths</h3>
+            <p>Rectangles are far from the only thing you can make with the canvas. Another thing you can create is paths. Paths are simply a series of points. After this series of points is specified, you can draw things based on the points. The most common examples consist of using the points to draw a line that connects from point to point in order (called a stroke), or treating the set of points as vertices of a polygon, and filling the interior of that polygon (called a fill). Let's take a look at an example (assume that our HTML is the same as what it was at the beginning):</p>
+            <pre><code class="javascript">
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 
-ctx.strokeRect(100, 150, 50, 200);
-                </code></pre>
-            </div>
-            <h2>Challenge: Smiley Faces</h2>
-            <p>Create a function that draws a smiley face on the canvas out of rectangles, at the given x and y position (use function parameters to specify the position). If you feel like all this rectangle stuff is too easy, try it with some other canvas methods (<b>methods</b> are simply functions that are also properties of an object). Remember to test the function (preferably multiple times at different positions) to make sure that it works!</p>
+ctx.beginPath();
+ctx.moveTo(100, 100);
+ctx.lineTo(150, 50);
+ctx.lineTo(200, 100);
+ctx.closePath();
+ctx.stroke();
+            </code></pre>
+            <p>Here's what the above code generates (albeit with a smaller canvas so it takes up less space in the page):</p>
+            <canvas id="canvas3" width="256" height="128"></canvas>
+            <script>
+            {
+                let canvas = document.getElementById("canvas3");
+                let ctx = canvas.getContext("2d");
+
+                ctx.beginPath();
+                ctx.moveTo(100, 100);
+                ctx.lineTo(150, 50);
+                ctx.lineTo(200, 100);
+                ctx.closePath();
+                ctx.stroke();
+            }
+            </script>
+            <p>Let's analyze what's going on here. We've already seen the first two lines (getting the canvas and canvas context). However, the next six lines are new. <code>ctx.beginPath</code> indicates that we are creating a path. This is important to include, especially if we are creating multiple paths, because without it, every path we make will be assumed to be one single huge path.</p>
+            <p>The next new function, <code>ctx.moveTo</code>, indicates that a path should be started at the specified coordinates. So, in this case, we're starting a path at the point 100 pixels from the top of the cavnas and 100 pixels from the left of the canvas.</p>
+            <p>The next function, <code>ctx.lineTo</code>, adds a point, and indicates that a line should be drawn from the previous point to the point specified by its parameters. So the first call is basically saying "draw a line from (100, 100) to (150, 50)" and the second call is saying "draw a line from (150, 50) to (200, 100)". Notice how I never said that <code>ctx.lineTo</code> actually draws the line. You'll see why shortly.</p>
+            <p>Now we have <code>ctx.closePath</code>. This essentially says to connect the last point to the first point. Without this, only two lines would be drawn- the one connecting (100, 100) and (150, 50); and the one connecting (150, 50) and (200, 100).</p>
+            <p>Finally, we have <code>ctx.stroke</code>, the function that actually draws the lines. The five lines before this essentially consisted of giving <code>ctx.stroke</code> a blueprint for what to draw.</p>
+            <h3>What can you do with the canvas?</h3>
+            <p>Much of what I've covered here might seem really simple. However, by leveraging JavaScript's ability to simplify annoying repetition, we can do some amazing things with programming that would take much longer in a traditional program. Consider the following example:</p>
+            <canvas id="canvas4" width="512" height="512"></canvas>
+            <script>
+            {let c = document.getElementById("canvas4");
+            let ctx = c.getContext("2d");
+
+            function iteration(x, y, size, remaining) {
+                let halfSize = size / 2;
+                ctx.fillRect(x - halfSize, y - halfSize, size, size);
+                if (remaining > 0) {
+                    iteration(x - halfSize, y - halfSize, halfSize, remaining - 1);
+                    iteration(x + halfSize, y - halfSize, halfSize, remaining - 1);
+                    iteration(x - halfSize, y + halfSize, halfSize, remaining - 1);
+                    iteration(x + halfSize, y + halfSize, halfSize, remaining - 1);
+                }
+            }
+
+            iteration(256, 256, 256, 7);
+            }
+            </script>
+            <p>Here is the code (again, HTML is the same as the example at the beginning):</p>
+            <pre><code class="javascript">
+let c = document.getElementById("canvas");
+let ctx = c.getContext("2d");
+
+function iteration(x, y, size, remaining) {
+    let halfSize = size / 2;
+    ctx.fillRect(x - halfSize, y - halfSize, size, size);
+    if (remaining > 0) {
+        iteration(x - halfSize, y - halfSize, halfSize, remaining - 1);
+        iteration(x + halfSize, y - halfSize, halfSize, remaining - 1);
+        iteration(x - halfSize, y + halfSize, halfSize, remaining - 1);
+        iteration(x + halfSize, y + halfSize, halfSize, remaining - 1);
+    }
+}
+
+iteration(256, 256, 256, 7);
+            </code></pre>
+            <p>Let's analyze how this works. We should first figure out the process for creating such an image in the first place before we analyze the code. Breaking a process down into pieces is important for translating that process in code, because, if we break it down enough, we'll be able to implement that process one-to-one. Anyway' let's get started:</p>
+            <p>We can start with the large square in the center. Centered on each corner of this square is another square with half the side length of the original. If we look at just one of these smaller squares, we see the same thing: centered on each corner of the half-sized square, there is another square half its size. And if we look at <i>those</i> squares, we find even smaller ones centered at its corners. And so on.</p> 
+            <p>Now for the code. First two lines are standard stuff (defining canvas and context). Then, we have the function <code>iteration</code>, which makes up the bulk of this program. It accepts four parameters: a position (in the form of x and y coordinates), a size, and a parameter representing the remaining number of iterations.</p>
+            <p>Let's start with the first two lines in the function. The first one creates a variable to represent half of the size. I could have just typed <code>size / 2</code> a bunch of times. However, I think assigning it to a new variable is cleaner. The line after that, <code>ctx.fillRect(x - halfSize, y - halfSize, size, size);</code> draws a square with side length <code>size</code>, centered at (<code>x</code>, <code>y</code>). Since the first two parameters of <code>ctx.fillRect</code> represent the top-left corner, we have to subtract half of the side length to center the square.</p>
+            <p>Now let's look at the if-statement and the code inside of it, which are arguably the most important parts of this code. The code inside the if-statement calls <code>iteration</code> four times. Consider what we plug in for the <code>x</code> and <code>y</code> parameters in these calls to <code>iteration</code>. Notice how the first one is the same as the two parameters for <code>ctx.fillRect</code> above- in other words, the top-right corner of the square we just drew. In fact, if you think about it, the values we're plugging in for<code>x</code> and <code>y</code> for all of these four calls to <code>iteration</code> are the corners of the square we just drew. And since <code>x</code> and <code>y</code> represent the center of the square, those four calls to <code>iteration</code> are drawing squares centered at the corners of the larger square, just like how we described the process for generating this thing in the first place. And it gets better: these squares are half the size, because we're plugging in <code>halfSize</code> for the <code>size</code> parameter. This is exactly what we described in the first paragraph of this section.</p>
+            <p>Of course, you may notice a problem with this: if we keep having this function call itself, it'll do it forever. This is what the <code>remaining</code> argument is for. Every time we go another layer deep, it decreases by 1. When it hits zero, no more additional calls to <code>iteration</code> are made.</p>
+            <p>And then, finally, at the end of the code, we have to call <code>iteration</code> in the first place. In this case, we're centering the big square at (256, 256), with a side length of 256 pixels, and we plan to go 7 layers deep.</p>
+            <h3>Additional Canvas Features</h3>
+            <p>Here's some additional canvas features to play around with. I won't go in-depth into documenting these- it's your job to figure out exactly how they work. <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D">Here's a good resource for canvas API features- in fact, it basically contains <i>all</i> of them.</a> Remember that all of these are the names of <i>properties</i>, so they need to be prefixed with whatever your canvas context is called.</p>
+            <h4>Canvas Methods/Functions</h4>
+            <ul>
+                <li><code>arc</code> - A function used in paths similar to lineTo. However, this one draws a portion of a circle (an arc), rather than a line.</li>
+                <li><code>fill</code> - The filling counterpart to <code>stroke</code>. This function takes whatever path you specified and fills its interior. </li>
+                <li><code>fillText</code> and <code>strokeText</code> - Functions for drawing text on the canvas.</li>
+            </ul>
+            <h4>Canvas Properties</h4>
+            <p>Set these (with <code>=</code>) to get different effects</p>
+            <ul>
+                <li><code>strokeStyle</code> - Sets color of all future strokes/lines. Does not effect previously-drawn ones.</li>
+                <li><code>fillStyle</code> - Fill equivalent to <code>strokeStyle</code>.</li>
+                <li><code>lineWidth</code> - Determines width of stroke lines in pixels.</li>
+                <li><code>font</code> - Sets font of all text drawn on canvas. This one is annoying to format, so don't be surprised if it doesn't work on your first try.</li>
+            </ul>
         </div>
         <ul id="site-nav" data-root-dir="..">
 
