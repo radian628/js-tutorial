@@ -13,6 +13,30 @@
         </ul>
         <div class="article">
             <h1>Day 6</h1>
+            <p><strong>This page is currently under construction.</strong></p>
+            <h2>While Loops</h2>
+            <p>Amongst all the talk I've been doing about repetition in code and how bad and awful that is, there's one thing that's been mysteriously missing: A way to run a segment of code a bunch of times. Sure, you can do that with a function that calls itself (similar to that fractal I showed you yesterday). However, that's weird, clunky, and it's kind of hard to tell what you're doing. Fortunately, as is often the case when something simple seems needlessly difficult in programming, a disgruntled programmer has created a solution. And the solution to running a few lines of code a bunch of times is the <code>while</code> loop.</p>
+            <h3>What is a While Loop?</h3>
+            <p>A <code>while</code> loop is constructed the same way you would make an if-statement. The only difference is that you replace <code>if</code> with <code>while</code>. A <code>while</code> loop will repeatedly run the code inside of it as long as the condition between its parentheses remains true. It only checks this condition at the end of a single cycle/iteration, so if the condition becomes false halfway through the loop, it won't suddenly stop. The way I like to think about a <code>while</code> loop is that it's an if-statement that's allowed to repeat indefinitely. Here's a <code>while</code> loop in action:</p>
+            <pre><code class="javascript">
+let i = 0;
+while (i &lt; 10) {
+    console.log(i);
+    i++;
+}
+            </code></pre>
+            <p>This code will produce the following:</p>
+            <pre class="js-output">
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9</pre>
         </div>
         <ul id="site-nav" data-root-dir="..">
 
