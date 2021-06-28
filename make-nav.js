@@ -105,7 +105,7 @@ async function addSiteNav() {
             <li><a data-href="/days/day3.html">Day 3 - Booleans, Comparision, If/Else, Logic</a></li>
             <li><a data-href="/days/day4.html">Day 4 - Objects, DOM, Events</a></li>
             <li><a data-href="/days/day5.html">Day 5 - HTML5 Canvas API</a></li>
-            <li><a data-href="/days/day6.html">Day 6</a></li>
+            <li><a data-href="/days/day6.html">Day 6 - Loops, Arrays, setTimeout</a></li>
             <li><a data-href="/days/day7.html">Day 7</a></li>
             <li><a data-href="/days/day8.html">Day 8</a></li>
             <li><a data-href="/days/day9.html">Day 9</a></li>
